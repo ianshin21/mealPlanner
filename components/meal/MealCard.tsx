@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { replaceOneMeal } from "@/lib/meal-generator";
 import type { MealSlot, MealType, DayPlan, UserInput } from "@/lib/types";
 
 interface MealCardProps {
@@ -22,29 +23,17 @@ export default function MealCard({
 }: MealCardProps) {
   const [loading, setLoading] = useState(false);
 
-  const handleReplace = async () => {
+  const handleReplace = () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/replace-meal", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const seed = Date.now() + day * 100 + (mealType === "lunch" ? 0 : 50);
+      const newMeal = replaceOneMeal(userInput, currentPlan, day, mealType, seed);
+      onReplace(day, mealType, newMeal);
+      if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "replace_meal", {
           day,
-          mealType,
-          userInput,
-          currentPlan,
-        }),
-      });
-      const data = await res.json();
-      if (data.success && data.newMeal) {
-        onReplace(day, mealType, data.newMeal);
-        // analytics hook
-        if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
-          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "replace_meal", {
-            day,
-            meal_type: mealType,
-          });
-        }
+          meal_type: mealType,
+        });
       }
     } catch {
       alert("교체 중 오류가 발생했습니다. 다시 시도해 주세요.");

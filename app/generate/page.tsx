@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AdBanner from "@/components/ads/AdBanner";
+import { generateMealPlan } from "@/lib/meal-generator";
 import type {
   UserInput,
   Period,
@@ -18,7 +19,6 @@ import type {
   ActivityLevel,
   WeightGoal,
   Budget,
-  MealPlan,
 } from "@/lib/types";
 
 const ALLERGIES_LIST = [
@@ -123,7 +123,7 @@ export default function GeneratePage() {
       prev.includes(item) ? prev.filter((d) => d !== item) : [...prev, item]
     );
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -152,26 +152,14 @@ export default function GeneratePage() {
       });
     }
 
-    startTransition(async () => {
+    startTransition(() => {
       try {
-        const res = await fetch("/api/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userInput }),
-        });
-
-        const data: { success: boolean; plan?: MealPlan; error?: string } = await res.json();
-
-        if (!data.success || !data.plan) {
-          setError(data.error || "식단 생성에 실패했습니다. 다시 시도해 주세요.");
-          return;
-        }
-
-        // Store in sessionStorage
-        sessionStorage.setItem(`plan-${data.plan.sessionId}`, JSON.stringify(data.plan));
-        router.push(`/result?session=${data.plan.sessionId}`);
+        const sessionId = crypto.randomUUID();
+        const plan = generateMealPlan(userInput, sessionId);
+        sessionStorage.setItem(`plan-${sessionId}`, JSON.stringify(plan));
+        router.push(`/result?session=${sessionId}`);
       } catch {
-        setError("네트워크 오류가 발생했습니다. 다시 시도해 주세요.");
+        setError("식단 생성에 실패했습니다. 다시 시도해 주세요.");
       }
     });
   };
