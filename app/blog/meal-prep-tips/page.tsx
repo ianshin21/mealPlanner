@@ -50,7 +50,7 @@ export default function MealPrepTips() {
               <li><strong>시간 절약:</strong> 평일 저녁 조리 시간을 10분 이내로 줄일 수 있습니다.</li>
               <li><strong>식비 절약:</strong> 계획적인 장보기로 음식물 낭비와 충동 배달을 줄입니다.</li>
               <li><strong>건강 관리:</strong> 미리 준비된 건강한 음식이 있으면 편의점 음식 선택을 자연스럽게 줄이게 됩니다.</li>
-              <li><strong>정신적 여유:</strong> "오늘 뭐 먹지?" 고민에서 해방됩니다.</li>
+              <li><strong>정신적 여유:</strong> &ldquo;오늘 뭐 먹지?&rdquo; 고민에서 해방됩니다.</li>
             </ul>
           </section>
 

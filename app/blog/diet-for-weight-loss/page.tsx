@@ -40,7 +40,7 @@ export default function DietForWeightLoss() {
               다이어트 실패의 가장 큰 이유는 너무 극단적인 식이 제한에 있습니다.
               하루 1,000kcal 이하로 먹거나 특정 음식군을 완전히 끊으면 처음에는 살이 빠지는 것 같지만,
               결국 반동 식욕(요요)과 함께 다시 원래대로 돌아오게 됩니다.
-              지속 가능한 다이어트는 '굶는 것'이 아니라 '잘 먹는 것'에서 시작합니다.
+              지속 가능한 다이어트는 &lsquo;굶는 것&rsquo;이 아니라 &lsquo;잘 먹는 것&rsquo;에서 시작합니다.
             </p>
           </section>
 
@@ -101,8 +101,8 @@ export default function DietForWeightLoss() {
             <ul className="list-disc pl-5 space-y-2">
               <li><strong>과도한 탄수화물 제한:</strong> 뇌와 근육의 주요 에너지원인 탄수화물을 너무 줄이면 집중력 저하, 피로감이 생깁니다.</li>
               <li><strong>식사 거르기:</strong> 한 끼를 거르면 다음 끼니에 과식으로 이어지는 경우가 많습니다.</li>
-              <li><strong>운동 후 보상 심리:</strong> "운동했으니까 더 먹어도 돼"는 생각은 결과적으로 칼로리 적자를 없앱니다.</li>
-              <li><strong>저칼로리 라벨 맹신:</strong> "다이어트 음식"으로 표시된 가공식품도 첨가당이 많을 수 있습니다.</li>
+              <li><strong>운동 후 보상 심리:</strong> &ldquo;운동했으니까 더 먹어도 돼&rdquo;는 생각은 결과적으로 칼로리 적자를 없앱니다.</li>
+              <li><strong>저칼로리 라벨 맹신:</strong> &ldquo;다이어트 음식&rdquo;으로 표시된 가공식품도 첨가당이 많을 수 있습니다.</li>
             </ul>
           </section>
 
@@ -141,7 +141,7 @@ export default function DietForWeightLoss() {
           <div className="bg-orange-50 rounded-2xl p-5 mt-6">
             <h2 className="font-bold text-gray-900 mb-2">다이어트 식단 자동으로 만들기</h2>
             <p className="text-sm text-gray-600 mb-4">
-              "가볍게 감량" 목표를 선택하면 칼로리가 낮고 단백질이 풍부한 메뉴로
+              &ldquo;가볍게 감량&rdquo; 목표를 선택하면 칼로리가 낮고 단백질이 풍부한 메뉴로
               14일 또는 28일치 식단을 자동으로 구성해 드립니다.
             </p>
             <Link

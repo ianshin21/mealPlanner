@@ -147,7 +147,7 @@ export default function TwoPersonCooking() {
           <div className="bg-orange-50 rounded-2xl p-5 mt-6">
             <h2 className="font-bold text-gray-900 mb-2">2인 맞춤 식단 자동으로 만들기</h2>
             <p className="text-sm text-gray-600 mb-4">
-              인원을 "2인"으로 설정하면 두 사람에게 적합한 메뉴로 14일·28일 식단을 자동 구성해 드립니다.
+              인원을 &ldquo;2인&rdquo;으로 설정하면 두 사람에게 적합한 메뉴로 14일·28일 식단을 자동 구성해 드립니다.
             </p>
             <Link
               href="/generate"

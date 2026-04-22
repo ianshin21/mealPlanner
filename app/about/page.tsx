@@ -21,7 +21,7 @@ export default function AboutPage() {
         <section className="bg-orange-50 rounded-2xl p-6 mb-6">
           <div className="text-4xl mb-3">🍱</div>
           <h2 className="text-lg font-bold text-gray-900 mb-3">
-            "매일 뭐 먹지?"를 해결하는 서비스
+            &ldquo;매일 뭐 먹지?&rdquo;를 해결하는 서비스
           </h2>
           <p className="text-sm text-gray-700 leading-relaxed">
             자동 식단 생성기는 혼자 또는 둘이 사는 분들이 매일 반복되는
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <h2 className="text-base font-bold text-gray-900 mb-3">왜 이 서비스를 만들었나요?</h2>
           <div className="text-sm text-gray-700 space-y-3 leading-relaxed">
             <p>
-              1인 가구가 늘어나면서 "오늘 뭐 먹지?"는 하루 중 가장 피곤한 질문 중 하나가 됐습니다.
+              1인 가구가 늘어나면서 &ldquo;오늘 뭐 먹지?&rdquo;는 하루 중 가장 피곤한 질문 중 하나가 됐습니다.
               배달 앱은 비싸고, 매번 요리하기는 귀찮고, 식단을 직접 짜는 건 더 어렵습니다.
             </p>
             <p>

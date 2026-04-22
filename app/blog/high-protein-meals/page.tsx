@@ -158,7 +158,7 @@ export default function HighProteinMeals() {
           <div className="bg-orange-50 rounded-2xl p-5 mt-6">
             <h2 className="font-bold text-gray-900 mb-2">고단백 식단 자동으로 만들기</h2>
             <p className="text-sm text-gray-600 mb-4">
-              "단백질 챙기기" 목표를 선택하면 단백질이 풍부한 메뉴 위주로
+              &ldquo;단백질 챙기기&rdquo; 목표를 선택하면 단백질이 풍부한 메뉴 위주로
               14일·28일치 식단을 자동으로 구성해 드립니다.
             </p>
             <Link

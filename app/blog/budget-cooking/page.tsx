@@ -132,7 +132,7 @@ export default function BudgetCooking() {
           <div className="bg-orange-50 rounded-2xl p-5 mt-6">
             <h2 className="font-bold text-gray-900 mb-2">저예산 식단 자동으로 만들기</h2>
             <p className="text-sm text-gray-600 mb-4">
-              예산 설정에서 "저렴하게"를 선택하면 가성비 좋은 재료 위주로 식단을 구성해 드립니다.
+              예산 설정에서 &ldquo;저렴하게&rdquo;를 선택하면 가성비 좋은 재료 위주로 식단을 구성해 드립니다.
             </p>
             <Link
               href="/generate"
