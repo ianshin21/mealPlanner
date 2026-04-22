@@ -4,1351 +4,2731 @@
       "id": "m001",
       "name": "된장찌개",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["찌개", "국물", "따뜻한"],
+      "cookingMethod": "찌개",
+      "familiarityScore": 95,
+      "tags": [
+        "찌개",
+        "국물",
+        "따뜻한"
+      ],
       "calories": 150,
       "protein": 10,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m002",
       "name": "김치찌개",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "돼지고기",
-      "tags": ["찌개", "국물", "매운"],
+      "cookingMethod": "찌개",
+      "familiarityScore": 98,
+      "tags": [
+        "찌개",
+        "국물",
+        "매운"
+      ],
       "calories": 200,
       "protein": 14,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m003",
       "name": "계란프라이",
       "type": "main",
-      "category": ["simple", "easy"],
+      "category": [
+        "simple",
+        "easy"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["간단", "빠른", "단백질"],
+      "cookingMethod": "구이",
+      "familiarityScore": 95,
+      "tags": [
+        "간단",
+        "빠른",
+        "단백질"
+      ],
       "calories": 90,
       "protein": 7,
-      "allergens": ["계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m004",
       "name": "볶음밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "밥",
-      "tags": ["볶음", "간단", "한끼"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 92,
+      "tags": [
+        "볶음",
+        "간단",
+        "한끼"
+      ],
       "calories": 350,
       "protein": 8,
-      "allergens": ["계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m005",
       "name": "두부조림",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["조림", "단백질", "채식"],
+      "cookingMethod": "조림",
+      "familiarityScore": 75,
+      "tags": [
+        "조림",
+        "단백질",
+        "채식"
+      ],
       "calories": 180,
       "protein": 12,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m006",
       "name": "닭갈비",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "basic",
       "mainIngredient": "닭고기",
-      "tags": ["볶음", "매운", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 85,
+      "tags": [
+        "볶음",
+        "매운",
+        "단백질"
+      ],
       "calories": 320,
       "protein": 28,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m007",
       "name": "제육볶음",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "basic",
       "mainIngredient": "돼지고기",
-      "tags": ["볶음", "매운", "밥도둑"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 92,
+      "tags": [
+        "볶음",
+        "매운",
+        "밥도둑"
+      ],
       "calories": 300,
       "protein": 22,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m008",
       "name": "계란찜",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["찜", "단백질", "부드러운"],
+      "cookingMethod": "찜",
+      "familiarityScore": 85,
+      "tags": [
+        "찜",
+        "단백질",
+        "부드러운"
+      ],
       "calories": 120,
       "protein": 10,
-      "allergens": ["계란"],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m009",
       "name": "미역국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "미역",
-      "tags": ["국물", "따뜻한", "건강"],
+      "cookingMethod": "국",
+      "familiarityScore": 88,
+      "tags": [
+        "국물",
+        "따뜻한",
+        "건강"
+      ],
       "calories": 80,
       "protein": 6,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m010",
       "name": "닭가슴살 볶음",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["볶음", "고단백", "다이어트"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 70,
+      "tags": [
+        "볶음",
+        "고단백",
+        "다이어트"
+      ],
       "calories": 200,
       "protein": 32,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["high-protein", "light-loss", "balanced"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "high-protein",
+        "light-loss",
+        "balanced"
+      ]
     },
     {
       "id": "m011",
       "name": "참치캔 볶음밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "참치",
-      "tags": ["볶음", "간단", "통조림"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 80,
+      "tags": [
+        "볶음",
+        "간단",
+        "통조림"
+      ],
       "calories": 380,
       "protein": 18,
-      "allergens": ["생선"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m012",
       "name": "소고기 미역국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 30,
       "cookLevel": "basic",
       "mainIngredient": "소고기",
-      "tags": ["국물", "따뜻한", "영양"],
+      "cookingMethod": "국",
+      "familiarityScore": 82,
+      "tags": [
+        "국물",
+        "따뜻한",
+        "영양"
+      ],
       "calories": 150,
       "protein": 12,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m013",
       "name": "순두부찌개",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["찌개", "국물", "매운"],
+      "cookingMethod": "찌개",
+      "familiarityScore": 88,
+      "tags": [
+        "찌개",
+        "국물",
+        "매운"
+      ],
       "calories": 160,
       "protein": 11,
-      "allergens": ["콩", "계란"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩",
+        "계란"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m014",
       "name": "닭볶음탕",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 30,
       "cookLevel": "basic",
       "mainIngredient": "닭고기",
-      "tags": ["조림", "매운", "단백질"],
+      "cookingMethod": "조림",
+      "familiarityScore": 82,
+      "tags": [
+        "조림",
+        "매운",
+        "단백질"
+      ],
       "calories": 280,
       "protein": 24,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m015",
       "name": "부대찌개",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "beginner",
       "mainIngredient": "소시지",
-      "tags": ["찌개", "국물", "든든한"],
+      "cookingMethod": "찌개",
+      "familiarityScore": 88,
+      "tags": [
+        "찌개",
+        "국물",
+        "든든한"
+      ],
       "calories": 280,
       "protein": 16,
-      "allergens": ["돼지고기"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "돼지고기"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m016",
       "name": "계란국",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["국물", "빠른", "간단"],
+      "cookingMethod": "국",
+      "familiarityScore": 78,
+      "tags": [
+        "국물",
+        "빠른",
+        "간단"
+      ],
       "calories": 80,
       "protein": 7,
-      "allergens": ["계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m017",
       "name": "참치마요덮밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "참치",
-      "tags": ["덮밥", "간단", "통조림"],
+      "cookingMethod": "덮밥",
+      "familiarityScore": 78,
+      "tags": [
+        "덮밥",
+        "간단",
+        "통조림"
+      ],
       "calories": 420,
       "protein": 20,
-      "allergens": ["생선", "계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "생선",
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m018",
       "name": "어묵볶음",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "어묵",
-      "tags": ["볶음", "간단", "반찬"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 75,
+      "tags": [
+        "볶음",
+        "간단",
+        "반찬"
+      ],
       "calories": 200,
       "protein": 9,
-      "allergens": ["생선"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m019",
       "name": "두부된장국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["국물", "따뜻한", "채식"],
+      "cookingMethod": "국",
+      "familiarityScore": 80,
+      "tags": [
+        "국물",
+        "따뜻한",
+        "채식"
+      ],
       "calories": 100,
       "protein": 8,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m020",
       "name": "스팸 계란 덮밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "스팸",
-      "tags": ["덮밥", "간단", "든든한"],
+      "cookingMethod": "덮밥",
+      "familiarityScore": 80,
+      "tags": [
+        "덮밥",
+        "간단",
+        "든든한"
+      ],
       "calories": 480,
       "protein": 18,
-      "allergens": ["계란", "돼지고기"],
-      "style": ["ultra-simple", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "계란",
+        "돼지고기"
+      ],
+      "style": [
+        "ultra-simple",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m021",
       "name": "콩나물국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "콩나물",
-      "tags": ["국물", "해장", "건강"],
+      "cookingMethod": "국",
+      "familiarityScore": 82,
+      "tags": [
+        "국물",
+        "해장",
+        "건강"
+      ],
       "calories": 60,
       "protein": 4,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m022",
       "name": "오징어볶음",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "basic",
       "mainIngredient": "오징어",
-      "tags": ["볶음", "매운", "해산물"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 80,
+      "tags": [
+        "볶음",
+        "매운",
+        "해산물"
+      ],
       "calories": 220,
       "protein": 20,
-      "allergens": ["조개류"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "조개류"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m023",
       "name": "돼지고기 김치볶음",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "돼지고기",
-      "tags": ["볶음", "김치", "밥도둑"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 85,
+      "tags": [
+        "볶음",
+        "김치",
+        "밥도둑"
+      ],
       "calories": 270,
       "protein": 18,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m024",
       "name": "감자조림",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "beginner",
       "mainIngredient": "감자",
-      "tags": ["조림", "채식", "든든한"],
+      "cookingMethod": "조림",
+      "familiarityScore": 70,
+      "tags": [
+        "조림",
+        "채식",
+        "든든한"
+      ],
       "calories": 200,
       "protein": 3,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m025",
       "name": "닭가슴살 샐러드",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["샐러드", "다이어트", "고단백"],
+      "cookingMethod": "샐러드",
+      "familiarityScore": 65,
+      "tags": [
+        "샐러드",
+        "다이어트",
+        "고단백"
+      ],
       "calories": 180,
       "protein": 28,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["light-loss", "high-protein"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "light-loss",
+        "high-protein"
+      ]
     },
     {
       "id": "m026",
       "name": "고등어구이",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "고등어",
-      "tags": ["구이", "생선", "건강"],
+      "cookingMethod": "구이",
+      "familiarityScore": 82,
+      "tags": [
+        "구이",
+        "생선",
+        "건강"
+      ],
       "calories": 250,
       "protein": 22,
-      "allergens": ["생선"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m027",
       "name": "소시지 야채볶음",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "소시지",
-      "tags": ["볶음", "간단", "아이들도"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 78,
+      "tags": [
+        "볶음",
+        "간단",
+        "아이들도"
+      ],
       "calories": 280,
       "protein": 12,
-      "allergens": ["돼지고기"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "돼지고기"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m028",
       "name": "비빔밥",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "밥",
-      "tags": ["비빔", "채소", "균형"],
+      "cookingMethod": "비빔",
+      "familiarityScore": 90,
+      "tags": [
+        "비빔",
+        "채소",
+        "균형"
+      ],
       "calories": 400,
       "protein": 12,
-      "allergens": ["계란", "콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "계란",
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m029",
       "name": "된장국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["국물", "따뜻한"],
+      "cookingMethod": "국",
+      "familiarityScore": 85,
+      "tags": [
+        "국물",
+        "따뜻한"
+      ],
       "calories": 90,
       "protein": 6,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m030",
       "name": "햄 야채볶음밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "햄",
-      "tags": ["볶음밥", "간단", "든든한"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 78,
+      "tags": [
+        "볶음밥",
+        "간단",
+        "든든한"
+      ],
       "calories": 420,
       "protein": 14,
-      "allergens": ["돼지고기", "계란"],
-      "style": ["ultra-simple", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "돼지고기",
+        "계란"
+      ],
+      "style": [
+        "ultra-simple",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m031",
       "name": "닭가슴살 구이",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["구이", "고단백", "다이어트"],
+      "cookingMethod": "구이",
+      "familiarityScore": 65,
+      "tags": [
+        "구이",
+        "고단백",
+        "다이어트"
+      ],
       "calories": 165,
       "protein": 31,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["high-protein", "light-loss"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m032",
       "name": "두부 스크램블",
       "type": "main",
-      "category": ["simple", "easy"],
+      "category": [
+        "simple",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["간단", "채식", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 55,
+      "tags": [
+        "간단",
+        "채식",
+        "단백질"
+      ],
       "calories": 140,
       "protein": 10,
-      "allergens": ["콩", "계란"],
-      "style": ["ultra-simple", "korean-easy"],
-      "goalFit": ["light-loss", "high-protein", "balanced"]
+      "allergens": [
+        "콩",
+        "계란"
+      ],
+      "style": [
+        "ultra-simple",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "light-loss",
+        "high-protein",
+        "balanced"
+      ]
     },
     {
       "id": "m033",
       "name": "쌈밥",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "삼겹살",
-      "tags": ["쌈", "채소", "건강"],
+      "cookingMethod": "기타",
+      "familiarityScore": 75,
+      "tags": [
+        "쌈",
+        "채소",
+        "건강"
+      ],
       "calories": 350,
       "protein": 20,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m034",
       "name": "떡볶이",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "떡",
-      "tags": ["볶음", "매운", "간식같은"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 90,
+      "tags": [
+        "볶음",
+        "매운",
+        "간식같은"
+      ],
       "calories": 380,
       "protein": 8,
-      "allergens": ["밀"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m035",
       "name": "황태해장국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "basic",
       "mainIngredient": "황태",
-      "tags": ["국물", "해장", "따뜻한"],
+      "cookingMethod": "국",
+      "familiarityScore": 72,
+      "tags": [
+        "국물",
+        "해장",
+        "따뜻한"
+      ],
       "calories": 130,
       "protein": 15,
-      "allergens": ["생선"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m036",
       "name": "참치 야채 덮밥",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "참치",
-      "tags": ["덮밥", "간단", "균형"],
+      "cookingMethod": "덮밥",
+      "familiarityScore": 72,
+      "tags": [
+        "덮밥",
+        "간단",
+        "균형"
+      ],
       "calories": 380,
       "protein": 20,
-      "allergens": ["생선"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m037",
       "name": "돼지고기 수육",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 30,
       "cookLevel": "basic",
       "mainIngredient": "돼지고기",
-      "tags": ["수육", "삶은", "단백질"],
+      "cookingMethod": "찜",
+      "familiarityScore": 72,
+      "tags": [
+        "수육",
+        "삶은",
+        "단백질"
+      ],
       "calories": 280,
       "protein": 24,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["high-protein", "balanced"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "high-protein",
+        "balanced"
+      ]
     },
     {
       "id": "m038",
       "name": "카레라이스",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "감자",
-      "tags": ["카레", "간단", "든든한"],
+      "cookingMethod": "기타",
+      "familiarityScore": 80,
+      "tags": [
+        "카레",
+        "간단",
+        "든든한"
+      ],
       "calories": 430,
       "protein": 12,
-      "allergens": ["밀"],
-      "style": ["korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m039",
       "name": "콩나물 불고기",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "소고기",
-      "tags": ["볶음", "단백질", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 75,
+      "tags": [
+        "볶음",
+        "단백질",
+        "건강"
+      ],
       "calories": 280,
       "protein": 22,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m040",
       "name": "계란 야채볶음",
       "type": "main",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["볶음", "간단", "채소"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 72,
+      "tags": [
+        "볶음",
+        "간단",
+        "채소"
+      ],
       "calories": 160,
       "protein": 8,
-      "allergens": ["계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s001",
       "name": "김치",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 0,
       "cookLevel": "beginner",
       "mainIngredient": "배추",
-      "tags": ["반찬", "발효", "기본"],
+      "cookingMethod": "발효",
+      "familiarityScore": 100,
+      "tags": [
+        "반찬",
+        "발효",
+        "기본"
+      ],
       "calories": 20,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "s002",
       "name": "계란말이",
       "type": "side",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["반찬", "단백질", "아이들도"],
+      "cookingMethod": "구이",
+      "familiarityScore": 88,
+      "tags": [
+        "반찬",
+        "단백질",
+        "아이들도"
+      ],
       "calories": 80,
       "protein": 6,
-      "allergens": ["계란"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s003",
       "name": "콩나물무침",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "콩나물",
-      "tags": ["나물", "채소", "건강"],
+      "cookingMethod": "무침",
+      "familiarityScore": 85,
+      "tags": [
+        "나물",
+        "채소",
+        "건강"
+      ],
       "calories": 30,
       "protein": 2,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s004",
       "name": "시금치나물",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "시금치",
-      "tags": ["나물", "채소", "건강"],
+      "cookingMethod": "나물",
+      "familiarityScore": 85,
+      "tags": [
+        "나물",
+        "채소",
+        "건강"
+      ],
       "calories": 40,
       "protein": 3,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s005",
       "name": "어묵조림",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "어묵",
-      "tags": ["조림", "반찬"],
+      "cookingMethod": "조림",
+      "familiarityScore": 82,
+      "tags": [
+        "조림",
+        "반찬"
+      ],
       "calories": 100,
       "protein": 6,
-      "allergens": ["생선"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "s006",
       "name": "두부구이",
       "type": "side",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["구이", "단백질", "채식"],
+      "cookingMethod": "구이",
+      "familiarityScore": 78,
+      "tags": [
+        "구이",
+        "단백질",
+        "채식"
+      ],
       "calories": 70,
       "protein": 6,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "s007",
       "name": "감자볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "감자",
-      "tags": ["볶음", "반찬", "채식"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 78,
+      "tags": [
+        "볶음",
+        "반찬",
+        "채식"
+      ],
       "calories": 120,
       "protein": 2,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "s008",
       "name": "오이무침",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "오이",
-      "tags": ["무침", "채소", "상큼한"],
+      "cookingMethod": "무침",
+      "familiarityScore": 80,
+      "tags": [
+        "무침",
+        "채소",
+        "상큼한"
+      ],
       "calories": 20,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s009",
       "name": "참치샐러드",
       "type": "side",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "참치",
-      "tags": ["샐러드", "단백질", "간단"],
+      "cookingMethod": "샐러드",
+      "familiarityScore": 72,
+      "tags": [
+        "샐러드",
+        "단백질",
+        "간단"
+      ],
       "calories": 100,
       "protein": 12,
-      "allergens": ["생선", "계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "생선",
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "s010",
       "name": "미역줄기볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "미역",
-      "tags": ["볶음", "해조류", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 72,
+      "tags": [
+        "볶음",
+        "해조류",
+        "건강"
+      ],
       "calories": 30,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s011",
       "name": "깍두기",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 0,
       "cookLevel": "beginner",
       "mainIngredient": "무",
-      "tags": ["반찬", "발효", "기본"],
+      "cookingMethod": "발효",
+      "familiarityScore": 88,
+      "tags": [
+        "반찬",
+        "발효",
+        "기본"
+      ],
       "calories": 20,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "s012",
       "name": "잡채",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "basic",
       "mainIngredient": "당면",
-      "tags": ["볶음", "특별한", "채소"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 85,
+      "tags": [
+        "볶음",
+        "특별한",
+        "채소"
+      ],
       "calories": 180,
       "protein": 4,
-      "allergens": ["밀", "콩"],
-      "style": ["korean"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀",
+        "콩"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "s013",
       "name": "버섯볶음",
       "type": "side",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "버섯",
-      "tags": ["볶음", "채식", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 75,
+      "tags": [
+        "볶음",
+        "채식",
+        "건강"
+      ],
       "calories": 40,
       "protein": 2,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s014",
       "name": "멸치볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "멸치",
-      "tags": ["볶음", "칼슘", "기본 반찬"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 88,
+      "tags": [
+        "볶음",
+        "칼슘",
+        "기본 반찬"
+      ],
       "calories": 60,
       "protein": 8,
-      "allergens": ["생선"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s015",
       "name": "호박볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "애호박",
-      "tags": ["볶음", "채소", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 82,
+      "tags": [
+        "볶음",
+        "채소",
+        "건강"
+      ],
       "calories": 40,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s016",
       "name": "계란국",
       "type": "side",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["국물", "간단", "따뜻한"],
+      "cookingMethod": "국",
+      "familiarityScore": 78,
+      "tags": [
+        "국물",
+        "간단",
+        "따뜻한"
+      ],
       "calories": 60,
       "protein": 5,
-      "allergens": ["계란"],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s017",
       "name": "두부김치",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["볶음", "김치", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 82,
+      "tags": [
+        "볶음",
+        "김치",
+        "단백질"
+      ],
       "calories": 120,
       "protein": 8,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s018",
       "name": "양배추무침",
       "type": "side",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "양배추",
-      "tags": ["무침", "채소", "건강"],
+      "cookingMethod": "무침",
+      "familiarityScore": 75,
+      "tags": [
+        "무침",
+        "채소",
+        "건강"
+      ],
       "calories": 25,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s019",
       "name": "무생채",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "무",
-      "tags": ["무침", "채소", "상큼한"],
+      "cookingMethod": "무침",
+      "familiarityScore": 80,
+      "tags": [
+        "무침",
+        "채소",
+        "상큼한"
+      ],
       "calories": 25,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s020",
       "name": "참나물무침",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "참나물",
-      "tags": ["나물", "채소", "건강"],
+      "cookingMethod": "나물",
+      "familiarityScore": 65,
+      "tags": [
+        "나물",
+        "채소",
+        "건강"
+      ],
       "calories": 30,
       "protein": 2,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s021",
       "name": "단무지",
       "type": "side",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 0,
       "cookLevel": "beginner",
       "mainIngredient": "무",
-      "tags": ["반찬", "간단", "기본"],
+      "cookingMethod": "기타",
+      "familiarityScore": 85,
+      "tags": [
+        "반찬",
+        "간단",
+        "기본"
+      ],
       "calories": 20,
       "protein": 0,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s022",
       "name": "파프리카 볶음",
       "type": "side",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "파프리카",
-      "tags": ["볶음", "채소", "컬러풀"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 65,
+      "tags": [
+        "볶음",
+        "채소",
+        "컬러풀"
+      ],
       "calories": 35,
       "protein": 1,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s023",
       "name": "브로콜리무침",
       "type": "side",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "브로콜리",
-      "tags": ["무침", "채소", "건강"],
+      "cookingMethod": "무침",
+      "familiarityScore": 68,
+      "tags": [
+        "무침",
+        "채소",
+        "건강"
+      ],
       "calories": 35,
       "protein": 3,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss", "high-protein"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss",
+        "high-protein"
+      ]
     },
     {
       "id": "s024",
       "name": "간장 달걀",
       "type": "side",
-      "category": ["easy", "simple"],
+      "category": [
+        "easy",
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["반찬", "간단", "단백질"],
+      "cookingMethod": "기타",
+      "familiarityScore": 78,
+      "tags": [
+        "반찬",
+        "간단",
+        "단백질"
+      ],
       "calories": 75,
       "protein": 6,
-      "allergens": ["계란"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s025",
       "name": "시래기볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "시래기",
-      "tags": ["볶음", "나물", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 65,
+      "tags": [
+        "볶음",
+        "나물",
+        "건강"
+      ],
       "calories": 50,
       "protein": 2,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s026",
       "name": "가지볶음",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "가지",
-      "tags": ["볶음", "채소", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 70,
+      "tags": [
+        "볶음",
+        "채소",
+        "건강"
+      ],
       "calories": 50,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s027",
       "name": "콩조림",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "콩",
-      "tags": ["조림", "단백질", "건강"],
+      "cookingMethod": "조림",
+      "familiarityScore": 72,
+      "tags": [
+        "조림",
+        "단백질",
+        "건강"
+      ],
       "calories": 120,
       "protein": 8,
-      "allergens": ["콩"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s028",
       "name": "파김치",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 0,
       "cookLevel": "beginner",
       "mainIngredient": "파",
-      "tags": ["반찬", "발효", "향"],
+      "cookingMethod": "발효",
+      "familiarityScore": 78,
+      "tags": [
+        "반찬",
+        "발효",
+        "향"
+      ],
       "calories": 15,
       "protein": 1,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "s029",
       "name": "참기름 계란",
       "type": "side",
-      "category": ["simple"],
+      "category": [
+        "simple"
+      ],
       "cookTime": 5,
       "cookLevel": "beginner",
       "mainIngredient": "계란",
-      "tags": ["간단", "단백질", "빠른"],
+      "cookingMethod": "구이",
+      "familiarityScore": 75,
+      "tags": [
+        "간단",
+        "단백질",
+        "빠른"
+      ],
       "calories": 80,
       "protein": 6,
-      "allergens": ["계란"],
-      "style": ["ultra-simple"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "s030",
       "name": "상추쌈",
       "type": "side",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 2,
       "cookLevel": "beginner",
       "mainIngredient": "상추",
-      "tags": ["쌈채소", "채식", "상큼한"],
+      "cookingMethod": "기타",
+      "familiarityScore": 80,
+      "tags": [
+        "쌈채소",
+        "채식",
+        "상큼한"
+      ],
       "calories": 10,
       "protein": 1,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m041",
       "name": "콩나물밥",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "콩나물",
-      "tags": ["밥", "영양", "해장"],
+      "cookingMethod": "기타",
+      "familiarityScore": 75,
+      "tags": [
+        "밥",
+        "영양",
+        "해장"
+      ],
       "calories": 320,
       "protein": 8,
-      "allergens": ["콩"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m042",
       "name": "소고기 국밥",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "beginner",
       "mainIngredient": "소고기",
-      "tags": ["국물", "든든한", "영양"],
+      "cookingMethod": "국",
+      "familiarityScore": 85,
+      "tags": [
+        "국물",
+        "든든한",
+        "영양"
+      ],
       "calories": 350,
       "protein": 20,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m043",
       "name": "닭죽",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 25,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["죽", "따뜻한", "건강"],
+      "cookingMethod": "죽",
+      "familiarityScore": 75,
+      "tags": [
+        "죽",
+        "따뜻한",
+        "건강"
+      ],
       "calories": 240,
       "protein": 18,
       "allergens": [],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["light-loss", "balanced"]
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "light-loss",
+        "balanced"
+      ]
     },
     {
       "id": "m044",
       "name": "야채죽",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "채소",
-      "tags": ["죽", "채식", "다이어트"],
+      "cookingMethod": "죽",
+      "familiarityScore": 65,
+      "tags": [
+        "죽",
+        "채식",
+        "다이어트"
+      ],
       "calories": 180,
       "protein": 4,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["light-loss", "balanced"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "light-loss",
+        "balanced"
+      ]
     },
     {
       "id": "m045",
       "name": "소면",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "소면",
-      "tags": ["면", "시원한", "간단"],
+      "cookingMethod": "면",
+      "familiarityScore": 82,
+      "tags": [
+        "면",
+        "시원한",
+        "간단"
+      ],
       "calories": 280,
       "protein": 8,
-      "allergens": ["밀"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m046",
       "name": "라면 (계란추가)",
       "type": "main",
-      "category": ["simple"],
+      "category": [
+        "simple"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "라면",
-      "tags": ["면", "간단", "빠른"],
+      "cookingMethod": "면",
+      "familiarityScore": 95,
+      "tags": [
+        "면",
+        "간단",
+        "빠른"
+      ],
       "calories": 480,
       "protein": 12,
-      "allergens": ["밀", "계란"],
-      "style": ["ultra-simple"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀",
+        "계란"
+      ],
+      "style": [
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m047",
       "name": "냉면",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 10,
       "cookLevel": "beginner",
       "mainIngredient": "냉면",
-      "tags": ["면", "시원한", "여름"],
+      "cookingMethod": "면",
+      "familiarityScore": 88,
+      "tags": [
+        "면",
+        "시원한",
+        "여름"
+      ],
       "calories": 350,
       "protein": 10,
-      "allergens": ["밀"],
-      "style": ["korean-easy"],
-      "goalFit": ["light-loss", "balanced"]
+      "allergens": [
+        "밀"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "light-loss",
+        "balanced"
+      ]
     },
     {
       "id": "m048",
       "name": "쌀국수",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "쌀국수",
-      "tags": ["면", "가벼운", "국물"],
+      "cookingMethod": "면",
+      "familiarityScore": 70,
+      "tags": [
+        "면",
+        "가벼운",
+        "국물"
+      ],
       "calories": 300,
       "protein": 14,
-      "allergens": ["생선"],
-      "style": ["korean-easy"],
-      "goalFit": ["light-loss", "balanced"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "light-loss",
+        "balanced"
+      ]
     },
     {
       "id": "m049",
       "name": "마파두부",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["볶음", "매운", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 65,
+      "tags": [
+        "볶음",
+        "매운",
+        "단백질"
+      ],
       "calories": 200,
       "protein": 12,
-      "allergens": ["콩"],
-      "style": ["korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m050",
       "name": "돈까스",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 25,
       "cookLevel": "basic",
       "mainIngredient": "돼지고기",
-      "tags": ["튀김", "든든한", "인기"],
+      "cookingMethod": "튀김",
+      "familiarityScore": 88,
+      "tags": [
+        "튀김",
+        "든든한",
+        "인기"
+      ],
       "calories": 450,
       "protein": 24,
-      "allergens": ["밀", "계란"],
-      "style": ["korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀",
+        "계란"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m051",
       "name": "불고기",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "소고기",
-      "tags": ["볶음", "달콤한", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 95,
+      "tags": [
+        "볶음",
+        "달콤한",
+        "단백질"
+      ],
       "calories": 300,
       "protein": 24,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m052",
       "name": "참치김치찌개",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "참치",
-      "tags": ["찌개", "국물", "매운"],
+      "cookingMethod": "찌개",
+      "familiarityScore": 78,
+      "tags": [
+        "찌개",
+        "국물",
+        "매운"
+      ],
       "calories": 200,
       "protein": 16,
-      "allergens": ["생선"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "high-protein"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein"
+      ]
     },
     {
       "id": "m053",
       "name": "닭가슴살 김치볶음밥",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["볶음밥", "단백질", "다이어트"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 72,
+      "tags": [
+        "볶음밥",
+        "단백질",
+        "다이어트"
+      ],
       "calories": 380,
       "protein": 26,
-      "allergens": ["계란"],
-      "style": ["korean-easy"],
-      "goalFit": ["high-protein", "light-loss"]
+      "allergens": [
+        "계란"
+      ],
+      "style": [
+        "korean-easy"
+      ],
+      "goalFit": [
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m054",
       "name": "만둣국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "만두",
-      "tags": ["국물", "따뜻한", "간편"],
+      "cookingMethod": "국",
+      "familiarityScore": 85,
+      "tags": [
+        "국물",
+        "따뜻한",
+        "간편"
+      ],
       "calories": 320,
       "protein": 14,
-      "allergens": ["밀", "돼지고기"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced"]
+      "allergens": [
+        "밀",
+        "돼지고기"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced"
+      ]
     },
     {
       "id": "m055",
       "name": "닭가슴살 야채볶음",
       "type": "main",
-      "category": ["easy"],
+      "category": [
+        "easy"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "닭고기",
-      "tags": ["볶음", "고단백", "채소"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 68,
+      "tags": [
+        "볶음",
+        "고단백",
+        "채소"
+      ],
       "calories": 220,
       "protein": 30,
       "allergens": [],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["high-protein", "light-loss"]
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m056",
       "name": "우엉볶음",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "basic",
       "mainIngredient": "우엉",
-      "tags": ["볶음", "식이섬유", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 65,
+      "tags": [
+        "볶음",
+        "식이섬유",
+        "건강"
+      ],
       "calories": 120,
       "protein": 2,
       "allergens": [],
-      "style": ["korean"],
-      "goalFit": ["balanced", "light-loss"]
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     },
     {
       "id": "m057",
       "name": "굴무국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "굴",
-      "tags": ["국물", "해산물", "영양"],
+      "cookingMethod": "국",
+      "familiarityScore": 68,
+      "tags": [
+        "국물",
+        "해산물",
+        "영양"
+      ],
       "calories": 100,
       "protein": 8,
-      "allergens": ["조개류"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "조개류"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m058",
       "name": "두부 야채 볶음",
       "type": "main",
-      "category": ["korean", "easy"],
+      "category": [
+        "korean",
+        "easy"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "두부",
-      "tags": ["볶음", "채식", "단백질"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 65,
+      "tags": [
+        "볶음",
+        "채식",
+        "단백질"
+      ],
       "calories": 180,
       "protein": 11,
-      "allergens": ["콩"],
-      "style": ["korean-easy", "ultra-simple"],
-      "goalFit": ["balanced", "light-loss", "high-protein"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean-easy",
+        "ultra-simple"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss",
+        "high-protein"
+      ]
     },
     {
       "id": "m059",
       "name": "북어국",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 20,
       "cookLevel": "beginner",
       "mainIngredient": "북어",
-      "tags": ["국물", "해장", "담백한"],
+      "cookingMethod": "국",
+      "familiarityScore": 75,
+      "tags": [
+        "국물",
+        "해장",
+        "담백한"
+      ],
       "calories": 90,
       "protein": 12,
-      "allergens": ["생선"],
-      "style": ["korean"],
-      "goalFit": ["balanced", "high-protein", "light-loss"]
+      "allergens": [
+        "생선"
+      ],
+      "style": [
+        "korean"
+      ],
+      "goalFit": [
+        "balanced",
+        "high-protein",
+        "light-loss"
+      ]
     },
     {
       "id": "m060",
       "name": "된장 야채볶음",
       "type": "main",
-      "category": ["korean"],
+      "category": [
+        "korean"
+      ],
       "cookTime": 15,
       "cookLevel": "beginner",
       "mainIngredient": "채소",
-      "tags": ["볶음", "채식", "건강"],
+      "cookingMethod": "볶음",
+      "familiarityScore": 68,
+      "tags": [
+        "볶음",
+        "채식",
+        "건강"
+      ],
       "calories": 130,
       "protein": 5,
-      "allergens": ["콩"],
-      "style": ["korean", "korean-easy"],
-      "goalFit": ["balanced", "light-loss"]
+      "allergens": [
+        "콩"
+      ],
+      "style": [
+        "korean",
+        "korean-easy"
+      ],
+      "goalFit": [
+        "balanced",
+        "light-loss"
+      ]
     }
   ]
 }

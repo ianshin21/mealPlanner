@@ -10,6 +10,32 @@ export type ActivityLevel = "low" | "medium" | "high" | "";
 export type WeightGoal = "lose" | "maintain" | "gain" | "";
 export type Budget = "low" | "medium" | "high" | "";
 
+// 조리법 태그 — 반복 제한에 사용
+export type CookingMethod =
+  | "찌개"
+  | "국"
+  | "볶음"
+  | "조림"
+  | "구이"
+  | "찜"
+  | "무침"
+  | "나물"
+  | "덮밥"
+  | "비빔"
+  | "샐러드"
+  | "면"
+  | "죽"
+  | "튀김"
+  | "발효"
+  | "기타";
+
+// 목표별 하루 칼로리·단백질 가이드라인 (점심+저녁 합산 기준)
+export const GOAL_NUTRITION: Record<Goal, { minCalories: number; maxCalories: number; minProtein: number }> = {
+  "light-loss":   { minCalories: 400, maxCalories: 650,  minProtein: 30 },
+  balanced:       { minCalories: 600, maxCalories: 900,  minProtein: 40 },
+  "high-protein": { minCalories: 650, maxCalories: 950,  minProtein: 60 },
+};
+
 export interface UserInput {
   period: Period;
   headcount: Headcount;
@@ -38,6 +64,8 @@ export interface MenuItem {
   cookTime: number; // minutes
   cookLevel: "beginner" | "basic";
   mainIngredient: string;
+  cookingMethod: CookingMethod;
+  familiarityScore: number; // 0-100, 높을수록 친숙한 메뉴
   tags: string[];
   calories?: number; // per serving
   protein?: number;  // grams per serving
