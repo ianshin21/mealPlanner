@@ -150,6 +150,41 @@ export default function LandingPage() {
               <div className="font-medium text-gray-900">바쁜 직장인을 위한 건강 식단 팁</div>
               <div className="text-sm text-gray-500 mt-1">시간 없어도 균형 잡힌 식사를 하는 방법</div>
             </Link>
+            <Link
+              href="/blog/diet-for-weight-loss"
+              className="block bg-white rounded-xl p-4 border border-gray-100 hover:border-orange-200 transition-colors"
+            >
+              <div className="font-medium text-gray-900">굶지 않고 살 빼는 다이어트 식단 가이드</div>
+              <div className="text-sm text-gray-500 mt-1">칼로리 계산 없이 건강하게 체중 감량하는 방법</div>
+            </Link>
+            <Link
+              href="/blog/high-protein-meals"
+              className="block bg-white rounded-xl p-4 border border-gray-100 hover:border-orange-200 transition-colors"
+            >
+              <div className="font-medium text-gray-900">고단백 식단 완전 가이드</div>
+              <div className="text-sm text-gray-500 mt-1">근육 키우고 체력 관리하는 단백질 중심 식단</div>
+            </Link>
+            <Link
+              href="/blog/meal-prep-tips"
+              className="block bg-white rounded-xl p-4 border border-gray-100 hover:border-orange-200 transition-colors"
+            >
+              <div className="font-medium text-gray-900">밀프렙 완전 가이드</div>
+              <div className="text-sm text-gray-500 mt-1">주말 2시간으로 일주일 식사 해결하는 방법</div>
+            </Link>
+            <Link
+              href="/blog/budget-cooking"
+              className="block bg-white rounded-xl p-4 border border-gray-100 hover:border-orange-200 transition-colors"
+            >
+              <div className="font-medium text-gray-900">한 끼 3천원 이하 저예산 집밥 가이드</div>
+              <div className="text-sm text-gray-500 mt-1">식비 절약하면서 건강하게 먹는 알뜰 레시피</div>
+            </Link>
+            <Link
+              href="/blog/two-person-cooking"
+              className="block bg-white rounded-xl p-4 border border-gray-100 hover:border-orange-200 transition-colors"
+            >
+              <div className="font-medium text-gray-900">2인 가정 식단 가이드</div>
+              <div className="text-sm text-gray-500 mt-1">재료 낭비 없이 둘이 먹기 딱 좋은 식단 노하우</div>
+            </Link>
           </div>
         </section>
 
