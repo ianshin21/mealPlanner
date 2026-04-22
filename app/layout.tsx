@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://meal-planner.pages.dev"),
+  metadataBase: new URL("https://mealplanner-19t.pages.dev"),
   title: {
     default: "자동 식단 생성기 | 1인·2인 가정을 위한 14·28일 식단",
     template: "%s | 자동 식단 생성기",
@@ -55,7 +55,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://meal-planner.pages.dev",
+    canonical: "https://mealplanner-19t.pages.dev",
+  },
+  other: {
+    "google-adsense-account": "ca-pub-5247269257735944",
   },
 };
 
@@ -73,8 +76,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        {/* Google AdSense - replace with actual publisher ID */}
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossOrigin="anonymous"></script> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5247269257735944" crossOrigin="anonymous"></script>
       </head>
       <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {children}
