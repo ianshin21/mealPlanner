@@ -5,8 +5,49 @@ import Footer from "@/components/layout/Footer";
 import AdBanner from "@/components/ads/AdBanner";
 import { buildMetadata } from "@/lib/seo";
 
-// 홈은 사이트 default title/description 을 그대로 사용 (layout 의 default 와 동일)
-export const metadata: Metadata = buildMetadata({ path: "/" });
+/**
+ * 홈(/) 메타데이터 — 서비스 소개 페이지 톤으로 개별 최적화
+ *
+ * - title: 검색결과 클릭 유도 (무료, 회원가입 없이, 1인·2인, 14·28일, 쉬운 메뉴)
+ * - description: 검색 스니펫용(약 150자), 현실적인 집밥/식단 생성기 톤
+ * - og/twitter: SNS 공유 카드용 짧은 버전 별도 사용
+ *
+ * 페이지별 buildMetadata 결과 위에 OG/Twitter title·description 만 덮어쓰는 방식.
+ * (다른 페이지·레이아웃 메타는 변경하지 않음)
+ */
+const HOME_TITLE =
+  "무료 자동 식단 생성기 | 1인·2인 가정 14·28일 점심·저녁 식단";
+
+const HOME_DESCRIPTION =
+  "회원가입 없이 1분 만에 끝내는 1인·2인 가정용 자동 식단 생성기. 14일·28일치 점심·저녁 메뉴를 쉬운 한식·간편식 중심으로, 알레르기·싫어하는 재료까지 반영해 자동으로 짜 드립니다.";
+
+const HOME_SOCIAL_TITLE =
+  "1인·2인 집밥 고민 끝 — 14·28일 식단을 1분 만에";
+
+const HOME_SOCIAL_DESCRIPTION =
+  "회원가입 없이 무료. 점심·저녁만 쉬운 메뉴로, 알레르기·취향 반영해서 자동으로 짜 드립니다.";
+
+const baseMetadata = buildMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+});
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  // 홈은 사이트 루트이므로 titleTemplate 적용을 피하고 title 을 절대값으로 고정
+  title: { absolute: HOME_TITLE },
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: HOME_SOCIAL_TITLE,
+    description: HOME_SOCIAL_DESCRIPTION,
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: HOME_SOCIAL_TITLE,
+    description: HOME_SOCIAL_DESCRIPTION,
+  },
+};
 
 const FEATURES = [
   { icon: "⚡", title: "회원가입 없이 바로 시작", desc: "가입 없이 즉시 사용 가능" },
