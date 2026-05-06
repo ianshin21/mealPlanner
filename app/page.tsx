@@ -3,10 +3,10 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AdBanner from "@/components/ads/AdBanner";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "자동 식단 생성기 | 1인·2인 가정을 위한 14·28일 식단",
-};
+// 홈은 사이트 default title/description 을 그대로 사용 (layout 의 default 와 동일)
+export const metadata: Metadata = buildMetadata({ path: "/" });
 
 const FEATURES = [
   { icon: "⚡", title: "회원가입 없이 바로 시작", desc: "가입 없이 즉시 사용 가능" },
