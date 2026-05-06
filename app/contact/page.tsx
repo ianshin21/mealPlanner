@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "문의하기 | 자동 식단 생성기",
+export const metadata: Metadata = buildMetadata({
+  title: "문의하기",
   description:
     "자동 식단 생성기 서비스에 대한 문의, 메뉴 제안, 오류 신고 등을 보내주세요.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

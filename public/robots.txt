@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://meal-planner.pages.dev/sitemap.xml
+Sitemap: https://mealplanner-19t.pages.dev/sitemap.xml
 
 # Block result pages (session-based, not indexable)
 Disallow: /result
+Disallow: /generating

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "개인정보처리방침 | 자동 식단 생성기",
-  description: "자동 식단 생성기의 개인정보 수집 및 이용, 쿠키 정책, Google AdSense 광고 관련 안내입니다.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "개인정보처리방침",
+  description:
+    "자동 식단 생성기의 개인정보 수집 및 이용, 쿠키 정책, Google AdSense 광고 관련 안내입니다.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

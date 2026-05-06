@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "서비스 소개 | 자동 식단 생성기",
+export const metadata: Metadata = buildMetadata({
+  title: "서비스 소개",
   description:
     "자동 식단 생성기는 1인·2인 가정을 위해 만들어진 무료 식단 계획 도구입니다. 가입 없이 14일·28일 맞춤 식단을 즉시 생성할 수 있습니다.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "면책 고지",
-  robots: { index: false },
-};
+  description: "자동 식단 생성기 서비스의 면책 고지 안내입니다.",
+  path: "/disclaimer",
+  noIndex: true,
+});
 
 export default function DisclaimerPage() {
   return (
