@@ -77,6 +77,17 @@ export const siteConfig = {
 
   /** Google AdSense Publisher ID (메타태그 검증용) */
   adsensePublisherId: "ca-pub-5247269257735944",
+
+  /** 운영자/연락처 정보 (footer, 정책 페이지 등에서 단일 소스로 참조) */
+  contact: {
+    /** 공개 문의 이메일 */
+    email: "ianshin580@gmail.com",
+    /** 답신 SLA 안내 문구 */
+    replyPolicy: "영업일 기준 2~3일 이내 회신",
+  },
+
+  /** 저작권 표기에 사용할 시작 연도 */
+  copyrightStartYear: 2025,
 } as const;
 
 /**
