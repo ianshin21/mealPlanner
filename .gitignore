@@ -29,3 +29,6 @@ Thumbs.db
 
 # cloudflare
 .wrangler
+
+# typescript
+*.tsbuildinfo
