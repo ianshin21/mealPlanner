@@ -142,43 +142,7 @@ function ResultContent() {
     []
   );
 
-  if (error) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-center">
-        <div className="text-4xl mb-4">😢</div>
-        <p className="text-gray-600 mb-6">{error}</p>
-        <button
-          onClick={() => router.push("/generate")}
-          className="bg-orange-500 text-white px-6 py-3 rounded-xl font-medium"
-        >
-          다시 식단 만들기
-        </button>
-      </div>
-    );
-  }
-
-  if (!plan) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-center">
-        <div className="inline-block w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
-        <p className="text-gray-500">식단을 불러오는 중...</p>
-      </div>
-    );
-  }
-
-  const totalWeeks = Math.ceil(plan.userInput.period / 7);
-  const weeks = Array.from({ length: totalWeeks }, (_, i) => i + 1);
-  const weekDays = plan.days.filter(
-    (d) => d.day > (activeWeek - 1) * 7 && d.day <= activeWeek * 7
-  );
-
-  const top3Menus = [
-    plan.days[0]?.lunch?.main?.name,
-    plan.days[0]?.dinner?.main?.name,
-    plan.days[1]?.lunch?.main?.name,
-  ].filter((n): n is string => Boolean(n));
-
-  const summaryLine = `${GOAL_PHRASE[plan.userInput.goal] ?? ""} ${plan.userInput.period}일 맞춤 식단 (${STYLE_LABELS[plan.userInput.mealStyle]})`;
+  // ── 모든 훅은 early return 이전에 선언 (Rules of Hooks) ──────────────
 
   const showToast = useCallback((msg: string) => {
     setToast(msg);
@@ -222,6 +186,7 @@ function ResultContent() {
   }, [showToast]);
 
   const handleKakaoShare = useCallback(() => {
+    if (!plan) return;
     const kakao = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
 
     if (!kakao) {
@@ -254,14 +219,14 @@ function ResultContent() {
         link: { mobileWebUrl: currentUrl, webUrl: currentUrl },
       },
       buttons: [
-        { title: "식단 보기",   link: { mobileWebUrl: currentUrl,              webUrl: currentUrl } },
+        { title: "식단 보기",   link: { mobileWebUrl: currentUrl,          webUrl: currentUrl } },
         { title: "나도 만들기", link: { mobileWebUrl: `${origin}/generate`, webUrl: `${origin}/generate` } },
       ],
     });
   }, [plan, showToast]);
 
   const handleSaveImage = useCallback(async () => {
-    if (!shareCardRef.current) return;
+    if (!plan || !shareCardRef.current) return;
     setSavingImage(true);
     showToast("이미지 생성 중...");
 
@@ -272,7 +237,6 @@ function ResultContent() {
         useCORS: true,
         backgroundColor: "#ffffff",
         logging: false,
-        // 카드 바깥 그림자가 잘리지 않도록 여백 확보
         x: -8,
         y: -8,
         width: shareCardRef.current.offsetWidth + 16,
@@ -281,7 +245,6 @@ function ResultContent() {
 
       const filename = `식단-${plan.userInput.period}일-${plan.userInput.headcount}인.png`;
 
-      // 모바일: Web Share API(파일) 지원 시 공유 시트 호출
       if (typeof navigator.canShare === "function") {
         try {
           const blob = await new Promise<Blob>((resolve, reject) => {
@@ -298,7 +261,6 @@ function ResultContent() {
         }
       }
 
-      // 데스크톱 / 폴백: PNG 파일 다운로드
       const link = document.createElement("a");
       link.download = filename;
       link.href = canvas.toDataURL("image/png");
@@ -310,6 +272,46 @@ function ResultContent() {
       setSavingImage(false);
     }
   }, [plan, showToast]);
+
+  // ── early returns ───────────────────────────────────────────────────
+
+  if (error) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-16 text-center">
+        <div className="text-4xl mb-4">😢</div>
+        <p className="text-gray-600 mb-6">{error}</p>
+        <button
+          onClick={() => router.push("/generate")}
+          className="bg-orange-500 text-white px-6 py-3 rounded-xl font-medium"
+        >
+          다시 식단 만들기
+        </button>
+      </div>
+    );
+  }
+
+  if (!plan) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-16 text-center">
+        <div className="inline-block w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
+        <p className="text-gray-500">식단을 불러오는 중...</p>
+      </div>
+    );
+  }
+
+  const totalWeeks = Math.ceil(plan.userInput.period / 7);
+  const weeks = Array.from({ length: totalWeeks }, (_, i) => i + 1);
+  const weekDays = plan.days.filter(
+    (d) => d.day > (activeWeek - 1) * 7 && d.day <= activeWeek * 7
+  );
+
+  const top3Menus = [
+    plan.days[0]?.lunch?.main?.name,
+    plan.days[0]?.dinner?.main?.name,
+    plan.days[1]?.lunch?.main?.name,
+  ].filter((n): n is string => Boolean(n));
+
+  const summaryLine = `${GOAL_PHRASE[plan.userInput.goal] ?? ""} ${plan.userInput.period}일 맞춤 식단 (${STYLE_LABELS[plan.userInput.mealStyle]})`;
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-6">
