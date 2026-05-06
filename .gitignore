@@ -29,3 +29,6 @@ Thumbs.db
 
 # cloudflare
 .wrangler
+
+# OG image working assets (do not commit)
+.tmp_og/
