@@ -3,12 +3,34 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
-import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import DayPlanCard from "@/components/meal/DayPlanCard";
 import AdBanner from "@/components/ads/AdBanner";
 import type { MealPlan, DayPlan, MealSlot, MealType } from "@/lib/types";
+
+// 버튼 클릭 시점에 SDK를 on-demand로 로드 — 중복 로드 방지를 위한 싱글턴 프로미스
+let kakaoSDKPromise: Promise<void> | null = null;
+
+function loadKakaoSDK(): Promise<void> {
+  if (kakaoSDKPromise) return kakaoSDKPromise;
+  const existing = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
+  if (existing) return Promise.resolve();
+
+  kakaoSDKPromise = new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => {
+      kakaoSDKPromise = null;
+      reject(new Error("Kakao SDK load failed"));
+    };
+    document.head.appendChild(script);
+  });
+
+  return kakaoSDKPromise;
+}
 
 const GOAL_LABELS: Record<string, string> = {
   "light-loss": "가볍게 감량",
@@ -185,14 +207,18 @@ function ResultContent() {
     }
   }, [showToast]);
 
-  const handleKakaoShare = useCallback(() => {
+  const handleKakaoShare = useCallback(async () => {
     if (!plan) return;
-    const kakao = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
 
-    if (!kakao) {
-      showToast("카카오 SDK 로딩 중입니다. 잠시 후 다시 시도해 주세요.");
+    try {
+      await loadKakaoSDK();
+    } catch {
+      showToast("카카오 SDK를 불러올 수 없습니다. 네트워크를 확인해 주세요.");
       return;
     }
+
+    const kakao = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
+    if (!kakao) return;
 
     if (!kakao.isInitialized()) {
       const appKey = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
@@ -505,22 +531,6 @@ function ResultContent() {
 export default function ResultPage() {
   return (
     <>
-      {/*
-        Kakao SDK — lazyOnload: 페이지 인터랙티브 후 로드
-        TODO: .env.local에 NEXT_PUBLIC_KAKAO_APP_KEY 설정 필요
-        TODO: Kakao Developers 콘솔 > 플랫폼 > Web에 배포 도메인 등록 필요
-      */}
-      <Script
-        src="https://t1.kakaocdn.net/kakaojs/2.7.4/kakao.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          const kakao = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
-          const appKey = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
-          if (kakao && appKey && !kakao.isInitialized()) {
-            kakao.init(appKey);
-          }
-        }}
-      />
       <Header />
       <Suspense
         fallback={
