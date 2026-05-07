@@ -512,7 +512,7 @@ export default function ResultPage() {
       */}
       <Script
         src="https://t1.kakaocdn.net/kakaojs/2.7.4/kakao.min.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => {
           const kakao = (window as unknown as { Kakao?: KakaoSDK }).Kakao;
           const appKey = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
