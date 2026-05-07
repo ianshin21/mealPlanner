@@ -61,6 +61,8 @@ type KakaoSDK = {
         title: string;
         description: string;
         imageUrl: string;
+        imageWidth?: number;
+        imageHeight?: number;
         link: KakaoShareLink;
       };
       buttons?: { title: string; link: KakaoShareLink }[];
@@ -242,7 +244,9 @@ function ResultContent() {
       content: {
         title: `${plan.userInput.period}일 ${plan.userInput.headcount}인 맞춤 식단`,
         description,
-        imageUrl: `${SITE}/og-image.png?v=2`,
+        imageUrl: `${SITE}/og-image.png?v=3`,
+        imageWidth: 1200,
+        imageHeight: 630,
         link: { mobileWebUrl: `${SITE}/generate`, webUrl: `${SITE}/generate` },
       },
       buttons: [
