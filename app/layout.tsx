@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     canonical: "https://mealplanner-19t.pages.dev",
   },
   other: {
+    "fb:app_id": "1475424594316558",
     "google-adsense-account": "ca-pub-5247269257735944",
   },
 };
