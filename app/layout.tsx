@@ -24,14 +24,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://meal-planner.pages.dev",
+    url: "https://mealplanner-19t.pages.dev",
     siteName: "자동 식단 생성기",
     title: "자동 식단 생성기 | 1인·2인 가정용 14·28일 식단",
     description:
       "회원가입 없이 바로 사용. 14일 또는 28일치 점심·저녁 식단을 자동으로 만들어 드립니다.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://mealplanner-19t.pages.dev/og-image.png?v=1",
         width: 1200,
         height: 630,
         alt: "자동 식단 생성기",
