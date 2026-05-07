@@ -242,7 +242,7 @@ function ResultContent() {
       content: {
         title: `${plan.userInput.period}일 ${plan.userInput.headcount}인 맞춤 식단`,
         description,
-        imageUrl: `${SITE}/og-image.png`,
+        imageUrl: `${SITE}/og-image.png?v=2`,
         link: { mobileWebUrl: `${SITE}/generate`, webUrl: `${SITE}/generate` },
       },
       buttons: [
