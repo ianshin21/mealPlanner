@@ -229,24 +229,24 @@ function ResultContent() {
       kakao.init(appKey);
     }
 
-    const origin = window.location.origin;
-    const currentUrl = window.location.href;
+    const SITE = "https://mealplanner-19t.pages.dev";
     const firstMenu = plan.days[0]?.lunch?.main?.name ?? "";
     const description =
       `${GOAL_LABELS[plan.userInput.goal]} · ${STYLE_LABELS[plan.userInput.mealStyle]}` +
       (firstMenu ? ` · ${firstMenu}` : "");
 
+    // imageUrl · link는 카카오 서버가 접근 가능한 프로덕션 URL 고정
+    // 결과 URL은 sessionStorage 기반이라 타인이 열면 데이터 없음 → 생성 페이지로 연결
     kakao.Share.sendDefault({
       objectType: "feed",
       content: {
         title: `${plan.userInput.period}일 ${plan.userInput.headcount}인 맞춤 식단`,
         description,
-        imageUrl: `${origin}/og-image.png`,
-        link: { mobileWebUrl: currentUrl, webUrl: currentUrl },
+        imageUrl: `${SITE}/og-image.png`,
+        link: { mobileWebUrl: `${SITE}/generate`, webUrl: `${SITE}/generate` },
       },
       buttons: [
-        { title: "식단 보기",   link: { mobileWebUrl: currentUrl,          webUrl: currentUrl } },
-        { title: "나도 만들기", link: { mobileWebUrl: `${origin}/generate`, webUrl: `${origin}/generate` } },
+        { title: "나도 만들기", link: { mobileWebUrl: `${SITE}/generate`, webUrl: `${SITE}/generate` } },
       ],
     });
   }, [plan, showToast]);
