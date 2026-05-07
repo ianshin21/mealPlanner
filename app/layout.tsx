@@ -58,7 +58,6 @@ export const metadata: Metadata = {
     canonical: "https://mealplanner-19t.pages.dev",
   },
   other: {
-    "fb:app_id": "1475424594316558",
     "google-adsense-account": "ca-pub-5247269257735944",
   },
 };
@@ -71,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta property="fb:app_id" content="1475424594316558" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
