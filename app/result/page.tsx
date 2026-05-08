@@ -255,6 +255,16 @@ function ResultContent() {
     });
   }, [plan, showToast]);
 
+  const handleFacebookShare = useCallback(() => {
+    const SITE = "https://mealplanner-19t.pages.dev";
+    const url = encodeURIComponent(`${SITE}/generate`);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      "_blank",
+      "noopener,noreferrer,width=600,height=600"
+    );
+  }, []);
+
   const handleSaveImage = useCallback(async () => {
     if (!plan || !shareCardRef.current) return;
     setSavingImage(true);
@@ -431,8 +441,19 @@ function ResultContent() {
         </button>
 
         <button
+          onClick={handleFacebookShare}
+          className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-medium text-white active:scale-95 transition-all"
+          style={{ backgroundColor: "#1877F2" }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073C24 5.404 18.629 0 12 0S0 5.404 0 12.073c0 6.023 4.388 11.015 10.125 11.927v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.793-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796v8.437C19.612 23.088 24 18.096 24 12.073z"/>
+          </svg>
+          페이스북 공유
+        </button>
+
+        <button
           onClick={() => router.push("/generate")}
-          className="flex items-center justify-center gap-2 bg-orange-500 text-white rounded-xl py-3 text-sm font-medium hover:bg-orange-600 active:scale-95 transition-all shadow-sm"
+          className="col-span-2 flex items-center justify-center gap-2 bg-orange-500 text-white rounded-xl py-3 text-sm font-medium hover:bg-orange-600 active:scale-95 transition-all shadow-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
