@@ -14,6 +14,13 @@ interface MealCardProps {
   onReplace: (day: number, mealType: MealType, newMeal: MealSlot) => void;
 }
 
+const REPLACE_REASONS = [
+  "너무 어려움",
+  "별로 안 끌림",
+  "싫어하는 재료 포함",
+  "더 간단한 메뉴 원함",
+] as const;
+
 export default function MealCard({
   slot,
   mealType,
@@ -23,14 +30,16 @@ export default function MealCard({
   onReplace,
 }: MealCardProps) {
   const [loading, setLoading] = useState(false);
+  const [showReasonPicker, setShowReasonPicker] = useState(false);
 
-  const handleReplace = () => {
+  const handleReplace = (reason?: string) => {
+    setShowReasonPicker(false);
     setLoading(true);
     try {
       const seed = Date.now() + day * 100 + (mealType === "lunch" ? 0 : 50);
       const newMeal = replaceOneMeal(userInput, currentPlan, day, mealType, seed);
       onReplace(day, mealType, newMeal);
-      trackEvent("meal_replace_click", { meal_type: mealType, day });
+      trackEvent("meal_replace_click", { meal_type: mealType, day, reason: reason ?? "skipped" });
     } catch {
       alert("교체 중 오류가 발생했습니다. 다시 시도해 주세요.");
     } finally {
@@ -45,23 +54,51 @@ export default function MealCard({
 
   return (
     <div className={`rounded-xl border p-4 ${bgColor}`}>
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between mb-2">
         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${badgeColor}`}>
           {emoji} {label}
         </span>
         <button
-          onClick={handleReplace}
+          onClick={() => setShowReasonPicker((v) => !v)}
           disabled={loading}
           className="text-xs text-gray-400 hover:text-orange-500 transition-colors flex items-center gap-1 disabled:opacity-50"
         >
           {loading ? (
             <span className="inline-block w-3 h-3 border border-gray-300 border-t-orange-500 rounded-full animate-spin" />
+          ) : showReasonPicker ? (
+            "✕"
           ) : (
             "↺"
           )}
-          이 끼니 바꾸기
+          {showReasonPicker ? "취소" : "이 끼니 바꾸기"}
         </button>
       </div>
+
+      {/* 사유 선택 */}
+      {showReasonPicker && !loading && (
+        <div className="mb-3 p-3 bg-white/70 rounded-xl border border-white">
+          <p className="text-xs text-gray-500 mb-2">바꾸는 이유가 있나요?</p>
+          <div className="flex flex-wrap gap-1.5">
+            {REPLACE_REASONS.map((reason) => (
+              <button
+                key={reason}
+                type="button"
+                onClick={() => handleReplace(reason)}
+                className="text-xs px-2.5 py-1 rounded-full border border-orange-200 text-orange-600 bg-orange-50 hover:bg-orange-100 active:scale-95 transition-all"
+              >
+                {reason}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => handleReplace()}
+              className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-500 bg-white hover:bg-gray-50 active:scale-95 transition-all"
+            >
+              그냥 바꾸기
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="space-y-2">
         {/* Main dish */}
