@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -97,6 +97,20 @@ export default function GeneratePage() {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState("");
   const [showOptional, setShowOptional] = useState(false);
+  const [lastSettings, setLastSettings] = useState<(UserInput & { savedAt: number }) | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(LAST_SETTINGS_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as UserInput & { savedAt: number };
+      // 90일 초과 설정은 무시
+      if (Date.now() - parsed.savedAt > 90 * 24 * 60 * 60 * 1000) return;
+      setLastSettings(parsed);
+    } catch {
+      // 파싱 실패 무시
+    }
+  }, []);
 
   // Required inputs
   const [period, setPeriod] = useState<Period>(14);
@@ -114,6 +128,27 @@ export default function GeneratePage() {
   const [activityLevel, setActivityLevel] = useState<ActivityLevel>("");
   const [weightGoal, setWeightGoal] = useState<WeightGoal>("");
   const [budget, setBudget] = useState<Budget>("");
+
+  const handleLoadLastSettings = () => {
+    if (!lastSettings) return;
+    setPeriod(lastSettings.period);
+    setHeadcount(lastSettings.headcount);
+    setGoal(lastSettings.goal);
+    setMealStyle(lastSettings.mealStyle);
+    setCookLevel(lastSettings.cookLevel);
+    setCookTime(lastSettings.cookTime);
+    setAllergies(lastSettings.allergies ?? []);
+    setDisliked(lastSettings.dislikedIngredients ?? []);
+    setGender(lastSettings.gender ?? "");
+    setAgeGroup(lastSettings.ageGroup ?? "");
+    setActivityLevel(lastSettings.activityLevel ?? "");
+    setWeightGoal(lastSettings.weightGoal ?? "");
+    setBudget(lastSettings.budget ?? "");
+    if (lastSettings.gender || lastSettings.ageGroup || lastSettings.activityLevel || lastSettings.weightGoal || lastSettings.budget) {
+      setShowOptional(true);
+    }
+    setLastSettings(null);
+  };
 
   const toggleAllergy = (item: string) =>
     setAllergies((prev) =>
@@ -181,6 +216,25 @@ export default function GeneratePage() {
           <h1 className="text-xl font-bold text-gray-900">내 맞춤 식단 만들기</h1>
           <p className="text-sm text-gray-500 mt-1">아래 조건을 선택하면 자동으로 식단이 생성됩니다.</p>
         </div>
+
+        {lastSettings && (() => {
+          const daysAgo = Math.floor((Date.now() - lastSettings.savedAt) / (1000 * 60 * 60 * 24));
+          const label = daysAgo === 0 ? "오늘" : `${daysAgo}일 전`;
+          return (
+            <div className="flex items-center justify-between bg-orange-50 border border-orange-100 rounded-xl px-4 py-3 mb-4">
+              <p className="text-sm text-gray-600">
+                🕐 <span className="font-medium">{label}</span> 설정이 저장되어 있어요
+              </p>
+              <button
+                type="button"
+                onClick={handleLoadLastSettings}
+                className="text-sm font-semibold text-orange-600 hover:text-orange-700 active:scale-95 transition-all"
+              >
+                불러오기
+              </button>
+            </div>
+          );
+        })()}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* 기간 */}
