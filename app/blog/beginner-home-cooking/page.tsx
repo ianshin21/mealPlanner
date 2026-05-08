@@ -35,7 +35,7 @@ export default function BlogBeginnerHomeCooking() {
 
         <article className="text-sm text-gray-700 space-y-6 leading-relaxed">
           <section>
-            <h2 className="text-base font-bold text-gray-900 mb-3">왜 '쉬운 메뉴'를 먼저 골라야 하나</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-3">왜 &lsquo;쉬운 메뉴&rsquo;를 먼저 골라야 하나</h2>
             <p>
               요리 초보가 식단 짜기에서 가장 많이 실수하는 부분은 너무 어려운 메뉴를 첫날부터 계획하는 것입니다.
               한 번 실패하면 귀찮아지고, 결국 배달이나 편의식으로 돌아가게 됩니다.

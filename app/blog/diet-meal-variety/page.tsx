@@ -105,7 +105,7 @@ export default function BlogDietMealVariety() {
           <AdBanner format="rectangle" className="my-6" />
 
           <section>
-            <h2 className="text-base font-bold text-gray-900 mb-3">3. '완화일'을 미리 계획에 넣기</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-3">3. &lsquo;완화일&rsquo;을 미리 계획에 넣기</h2>
             <p>
               일주일 7일 중 하루 정도는 처음부터 &quot;좀 더 자유로운 날&quot;로 계획하면
               나머지 6일을 더 수월하게 유지할 수 있습니다. 이 날 먹고 싶은 것을 먹되,
