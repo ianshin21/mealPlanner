@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AdBanner from "@/components/ads/AdBanner";
+import LandingAnalytics from "@/components/analytics/LandingAnalytics";
 
 export const metadata: Metadata = {
   title: "자동 식단 생성기 | 1인·2인 가정을 위한 14·28일 식단",
@@ -25,6 +26,7 @@ const STEPS = [
 export default function LandingPage() {
   return (
     <>
+      <LandingAnalytics />
       <Header />
       <main className="max-w-2xl mx-auto px-4">
         {/* Hero */}

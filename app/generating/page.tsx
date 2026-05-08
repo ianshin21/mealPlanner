@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 import { generateMealPlan } from "@/lib/meal-generator";
+import { trackEvent } from "@/lib/analytics";
 import type { UserInput } from "@/lib/types";
 
 const TIPS = [
@@ -40,6 +41,12 @@ function GeneratingContent() {
       try {
         const plan = generateMealPlan(userInput, sessionId);
         sessionStorage.setItem(`plan-${sessionId}`, JSON.stringify(plan));
+        trackEvent("generate_complete", {
+          period: userInput.period,
+          goal: userInput.goal,
+          meal_style: userInput.mealStyle,
+          headcount: userInput.headcount,
+        });
         router.replace(`/result?session=${sessionId}`);
       } catch {
         router.replace("/generate?error=1");

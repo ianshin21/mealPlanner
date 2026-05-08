@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useTransition } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useRouter } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -107,6 +108,8 @@ export default function GeneratePage() {
       // 90일 초과 설정은 무시
       if (Date.now() - parsed.savedAt > 90 * 24 * 60 * 60 * 1000) return;
       setLastSettings(parsed);
+      const daysSinceLast = Math.floor((Date.now() - parsed.savedAt) / (1000 * 60 * 60 * 24));
+      trackEvent("return_visit", { days_since_last: daysSinceLast });
     } catch {
       // 파싱 실패 무시
     }
@@ -159,7 +162,7 @@ export default function GeneratePage() {
       prev.includes(item) ? prev.filter((d) => d !== item) : [...prev, item]
     );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -188,14 +191,7 @@ export default function GeneratePage() {
       // 프라이빗 모드 등 localStorage 접근 불가 시 무시
     }
 
-    // analytics
-    if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
-      (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_start", {
-        period,
-        goal,
-        meal_style: mealStyle,
-      });
-    }
+    trackEvent("generate_start", { period, goal, meal_style: mealStyle });
 
     startTransition(() => {
       try {
