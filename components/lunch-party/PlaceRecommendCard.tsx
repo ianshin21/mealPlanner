@@ -4,9 +4,10 @@ import { formatDistance } from "@/lib/places";
 interface PlaceRecommendCardProps {
   place: Place;
   variant: "hero" | "list";
+  onSelect?: (place: Place) => void;
 }
 
-export default function PlaceRecommendCard({ place, variant }: PlaceRecommendCardProps) {
+export default function PlaceRecommendCard({ place, variant, onSelect }: PlaceRecommendCardProps) {
   if (variant === "hero") {
     return (
       <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-5 border border-sky-100 mb-3">
@@ -30,6 +31,7 @@ export default function PlaceRecommendCard({ place, variant }: PlaceRecommendCar
           href={place.kakaoMapUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => onSelect?.(place)}
           className="inline-flex items-center gap-1.5 bg-yellow-400 text-gray-900 font-semibold text-sm px-4 py-2 rounded-xl active:bg-yellow-500 transition-colors"
         >
           카카오맵에서 보기 →
@@ -53,6 +55,7 @@ export default function PlaceRecommendCard({ place, variant }: PlaceRecommendCar
         href={place.kakaoMapUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => onSelect?.(place)}
         className="flex-shrink-0 text-xs text-sky-600 font-medium"
       >
         지도 →
