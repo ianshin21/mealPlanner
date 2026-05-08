@@ -53,6 +53,36 @@ export default function LandingPage() {
           <p className="mt-4 text-xs text-gray-400">
             * 이 서비스는 일반 건강 참고용이며 의료 조언이 아닙니다.
           </p>
+
+          {/* 점심 / 회식 진입 카드 */}
+          <div className="mt-6 grid grid-cols-2 gap-3 text-left">
+            <Link
+              href="/lunch"
+              className="block rounded-2xl p-4 border border-sky-100 bg-sky-50 active:bg-sky-100 transition-colors"
+            >
+              <div className="text-2xl mb-2">🍜</div>
+              <div className="font-semibold text-sm text-gray-900 leading-tight mb-1">
+                오늘 점심 뭐 먹지?
+              </div>
+              <div className="text-xs text-gray-500 leading-relaxed mb-3">
+                주변 맛집과 메뉴를 빠르게 추천받기
+              </div>
+              <div className="text-xs font-semibold text-sky-600">점심 추천 받기 →</div>
+            </Link>
+            <Link
+              href="/party"
+              className="block rounded-2xl p-4 border border-amber-100 bg-amber-50 active:bg-amber-100 transition-colors"
+            >
+              <div className="text-2xl mb-2">🍻</div>
+              <div className="font-semibold text-sm text-gray-900 leading-tight mb-1">
+                오늘 회식 어디서 하지?
+              </div>
+              <div className="text-xs text-gray-500 leading-relaxed mb-3">
+                인원, 예산, 분위기에 맞는 회식 메뉴 추천
+              </div>
+              <div className="text-xs font-semibold text-amber-600">회식 메뉴 고르기 →</div>
+            </Link>
+          </div>
         </section>
 
         {/* Ad slot 1 - hero 하단 */}
