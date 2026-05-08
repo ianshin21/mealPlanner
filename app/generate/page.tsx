@@ -20,6 +20,8 @@ import type {
   Budget,
 } from "@/lib/types";
 
+const LAST_SETTINGS_KEY = "meal-planner:last-settings";
+
 const ALLERGIES_LIST = [
   "계란", "우유", "밀", "땅콩", "콩", "생선", "조개류", "돼지고기", "닭고기", "새우",
 ];
@@ -141,6 +143,15 @@ export default function GeneratePage() {
       weightGoal: weightGoal || undefined,
       budget: budget || undefined,
     };
+
+    try {
+      localStorage.setItem(
+        LAST_SETTINGS_KEY,
+        JSON.stringify({ ...userInput, savedAt: Date.now() })
+      );
+    } catch {
+      // 프라이빗 모드 등 localStorage 접근 불가 시 무시
+    }
 
     // analytics
     if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
