@@ -16,7 +16,10 @@ export type EventName =
   | "landing_view"
   | "generate_start"
   | "generate_complete"
-  | "return_visit";
+  | "return_visit"
+  | "share_click"
+  | "share_complete"
+  | "meal_replace_click";
 
 export interface EventProps {
   [key: string]: string | number | boolean | undefined;

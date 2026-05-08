@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 import Header from "@/components/layout/Header";
@@ -176,10 +177,13 @@ function ResultContent() {
   const handleCopyLink = useCallback(() => {
     const url = window.location.href;
 
+    trackEvent("share_click", { method: "copy_link" });
+
     const onSuccess = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
       showToast("링크가 복사됐어요!");
+      trackEvent("share_complete", { method: "copy_link" });
     };
 
     const onFail = () => {
@@ -239,6 +243,7 @@ function ResultContent() {
 
     // imageUrl · link는 카카오 서버가 접근 가능한 프로덕션 URL 고정
     // 결과 URL은 sessionStorage 기반이라 타인이 열면 데이터 없음 → 생성 페이지로 연결
+    trackEvent("share_click", { method: "kakao" });
     kakao.Share.sendDefault({
       objectType: "feed",
       content: {
@@ -256,6 +261,7 @@ function ResultContent() {
   }, [plan, showToast]);
 
   const handleFacebookShare = useCallback(() => {
+    trackEvent("share_click", { method: "facebook" });
     const SITE = "https://mealplanner-19t.pages.dev";
     const url = encodeURIComponent(`${SITE}/generate`);
     window.open(
@@ -267,6 +273,7 @@ function ResultContent() {
 
   const handleSaveImage = useCallback(async () => {
     if (!plan || !shareCardRef.current) return;
+    trackEvent("share_click", { method: "image" });
     setSavingImage(true);
     showToast("이미지 생성 중...");
 
@@ -294,6 +301,7 @@ function ResultContent() {
           if (navigator.canShare({ files: [file] })) {
             await navigator.share({ files: [file], title: "내 맞춤 식단" });
             showToast("이미지 공유 완료!");
+            trackEvent("share_complete", { method: "image_share" });
             return;
           }
         } catch {
@@ -306,6 +314,7 @@ function ResultContent() {
       link.href = canvas.toDataURL("image/png");
       link.click();
       showToast("이미지가 저장됐어요!");
+      trackEvent("share_complete", { method: "image_download" });
     } catch {
       showToast("이미지 저장에 실패했어요. 다시 시도해 주세요.");
     } finally {

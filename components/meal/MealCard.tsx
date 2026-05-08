@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { replaceOneMeal } from "@/lib/meal-generator";
+import { trackEvent } from "@/lib/analytics";
 import type { MealSlot, MealType, DayPlan, UserInput } from "@/lib/types";
 
 interface MealCardProps {
@@ -29,12 +30,7 @@ export default function MealCard({
       const seed = Date.now() + day * 100 + (mealType === "lunch" ? 0 : 50);
       const newMeal = replaceOneMeal(userInput, currentPlan, day, mealType, seed);
       onReplace(day, mealType, newMeal);
-      if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
-        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "replace_meal", {
-          day,
-          meal_type: mealType,
-        });
-      }
+      trackEvent("meal_replace_click", { meal_type: mealType, day });
     } catch {
       alert("교체 중 오류가 발생했습니다. 다시 시도해 주세요.");
     } finally {
