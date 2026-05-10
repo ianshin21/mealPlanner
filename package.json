@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "opennextjs-cloudflare build && node -e \"const f=require('fs');f.copyFileSync('.open-next/worker.js','.open-next/assets/_worker.js');console.log('worker.js -> assets/_worker.js');\"",
+    "pages:build": "opennextjs-cloudflare build && node scripts/pages-build.js",
     "preview": "opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare deploy",
     "test": "vitest run",
