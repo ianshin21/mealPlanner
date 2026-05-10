@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4",
-    "@opennextjs/cloudflare": "^0",
+    "@opennextjs/cloudflare": "^1.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -36,6 +36,6 @@
     "typescript": "^5",
     "vite": "^8.0.9",
     "vitest": "^4.1.5",
-    "wrangler": "^3"
+    "wrangler": "^4"
   }
 }
