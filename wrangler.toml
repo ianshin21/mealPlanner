@@ -1,13 +1,4 @@
 name = "meal-planner"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-
-# Cloudflare Pages CI 가 이 값을 읽어 빌드 결과물 위치를 결정합니다.
 pages_build_output_dir = ".open-next/assets"
-
-# 로컬 wrangler dev / wrangler deploy 용 (Pages CI 는 무시)
-main = ".open-next/worker.js"
-
-[assets]
-directory = ".open-next/assets"
-binding = "ASSETS"
