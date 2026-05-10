@@ -84,7 +84,7 @@ async function apiFetchByCoords(lat: number, lng: number): Promise<Place[]> {
     radius: "2000",
     category: "restaurant",
     sort: "distance",
-    size: "45",
+    size: "15",
   });
   const res = await fetch(`/api/places/search?${params}`);
   const data = await res.json();

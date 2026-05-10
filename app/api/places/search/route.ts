@@ -153,7 +153,7 @@ export async function GET(req: NextRequest) {
           radius,
           sort: sort as "distance" | "accuracy",
           page,
-          size,
+          size: Math.min(size, 15), // Kakao category 검색 size 최대 15
         });
 
     const places = kakaoResultToPlaces(kakaoResult);
