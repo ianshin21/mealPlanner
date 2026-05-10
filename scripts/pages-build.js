@@ -1,5 +1,5 @@
 // Post-build: copy worker.js and companion dirs into assets/ for Cloudflare Pages
-const { copyFileSync, cpSync, existsSync, readdirSync } = require("fs");
+const { copyFileSync, cpSync, existsSync, writeFileSync } = require("fs");
 const { join } = require("path");
 
 copyFileSync(".open-next/worker.js", ".open-next/assets/_worker.js");
@@ -13,9 +13,7 @@ for (const dir of ["cloudflare", "middleware", ".build", "server-functions"]) {
   }
 }
 
-// Ensure _next/static/ (client-side JS chunks) is in assets/ for ASSETS binding.
-// @opennextjs/cloudflare v1.x may bundle static assets into the server function
-// rather than the assets directory, causing 404s for JS chunks in Cloudflare Pages.
+// Ensure _next/static/ (client-side JS/CSS chunks) is in assets/ for ASSETS binding.
 const nextStaticSrc = join(".next", "static");
 const nextStaticDst = join(".open-next", "assets", "_next", "static");
 if (existsSync(nextStaticSrc)) {
@@ -23,5 +21,10 @@ if (existsSync(nextStaticSrc)) {
   console.log("_next/static -> assets/_next/static");
 }
 
-// Debug: confirm assets top-level
-console.log("assets/ contents:", readdirSync(".open-next/assets").join(", "));
+// _routes.json: bypass worker for /_next/static/* so Cloudflare CDN serves chunks directly.
+// The worker does not correctly forward these requests to the ASSETS binding.
+writeFileSync(
+  ".open-next/assets/_routes.json",
+  JSON.stringify({ version: 1, include: ["/*"], exclude: ["/_next/static/*"] })
+);
+console.log("_routes.json written");
