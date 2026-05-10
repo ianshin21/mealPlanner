@@ -31,8 +31,6 @@ import {
 import { kakaoResultToPlaces } from "@/lib/kakao/convert";
 import type { Place } from "@/lib/types/place";
 
-export const runtime = "edge";
-
 // ────────────────────────────────────────────
 // 응답 타입
 // ────────────────────────────────────────────

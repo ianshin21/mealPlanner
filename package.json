@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "npm run pages:build && wrangler pages dev",
-    "deploy": "npm run pages:build && wrangler pages deploy",
+    "pages:build": "opennextjs-cloudflare build && node -e \"const f=require('fs');f.copyFileSync('.open-next/worker.js','.open-next/assets/_worker.js');console.log('worker.js -> assets/_worker.js');\"",
+    "preview": "opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare deploy",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -22,7 +22,8 @@
     "react-dom": "^19"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1",
+    "@cloudflare/workers-types": "^4",
+    "@opennextjs/cloudflare": "^0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

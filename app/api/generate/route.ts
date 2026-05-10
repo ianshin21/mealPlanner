@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateMealPlan } from "@/lib/meal-generator";
 import type { GenerateRequest } from "@/lib/types";
 
-export const runtime = "edge";
 
 function nanoid(len = 12): string {
   const chars = "abcdefghijklmnopqrstuvwxyz0123456789";

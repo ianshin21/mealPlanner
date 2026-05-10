@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { replaceOneMeal } from "@/lib/meal-generator";
 import type { ReplaceMealRequest } from "@/lib/types";
 
-export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   try {
