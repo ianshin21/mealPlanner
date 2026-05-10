@@ -245,8 +245,13 @@ export default function PartyClient() {
   // ── 첫 추천 실행 (폼 제출)
   const handleSubmit = async () => {
     if (locationMode === "gps" && !coords) {
-      requestGPS();
-      return;
+      // 거부/불가 상태면 키워드 검색으로 폴백해 바로 진행
+      if (locationState === "denied" || locationState === "unavailable") {
+        // fall through
+      } else {
+        requestGPS();
+        return;
+      }
     }
 
     trackEvent("party_recommend_start", { locationMode });

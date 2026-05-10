@@ -263,10 +263,14 @@ export default function LunchClient() {
 
   // ── 첫 추천 실행 (폼 제출)
   const handleSubmit = async () => {
-    // GPS 모드인데 좌표가 없으면 먼저 위치 요청
     if (locationMode === "gps" && !coords) {
-      requestGPS();
-      return;
+      // 거부/불가 상태면 키워드 검색으로 폴백해 바로 진행
+      if (locationState === "denied" || locationState === "unavailable") {
+        // fall through
+      } else {
+        requestGPS();
+        return;
+      }
     }
 
     trackEvent("lunch_recommend_start", { locationMode });

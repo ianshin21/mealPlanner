@@ -15,15 +15,16 @@ export default function LocationPermissionBanner({ status, onRetry }: LocationPe
         </p>
         <p className="text-xs text-amber-600 mt-0.5">
           {status === "denied"
-            ? "브라우저 설정에서 위치를 허용하면 더 정확한 추천을 드릴 수 있어요. 지금은 일반 추천을 보여드립니다."
-            : "현재 환경에서는 위치를 가져올 수 없어요. 일반 추천을 보여드립니다."}
+            ? "브라우저 설정에서 위치를 허용하면 더 정확한 추천을 드릴 수 있어요."
+            : "현재 환경에서는 위치를 가져올 수 없어요."}
+          {" "}아래 버튼을 누르면 지역명 없이 일반 추천을 드립니다.
         </p>
         {status === "denied" && onRetry && (
           <button
             onClick={onRetry}
             className="mt-2 text-xs text-amber-700 font-medium underline underline-offset-2"
           >
-            다시 시도하기
+            위치 다시 시도하기
           </button>
         )}
       </div>
