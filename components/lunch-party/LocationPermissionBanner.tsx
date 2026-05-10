@@ -3,9 +3,14 @@
 interface LocationPermissionBannerProps {
   status: "denied" | "unavailable";
   onRetry?: () => void;
+  onProceed?: () => void;
 }
 
-export default function LocationPermissionBanner({ status, onRetry }: LocationPermissionBannerProps) {
+export default function LocationPermissionBanner({
+  status,
+  onRetry,
+  onProceed,
+}: LocationPermissionBannerProps) {
   return (
     <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 flex items-start gap-3 mb-4">
       <span className="text-xl flex-shrink-0">📍</span>
@@ -17,16 +22,25 @@ export default function LocationPermissionBanner({ status, onRetry }: LocationPe
           {status === "denied"
             ? "브라우저 설정에서 위치를 허용하면 더 정확한 추천을 드릴 수 있어요."
             : "현재 환경에서는 위치를 가져올 수 없어요."}
-          {" "}아래 버튼을 누르면 지역명 없이 일반 추천을 드립니다.
         </p>
-        {status === "denied" && onRetry && (
-          <button
-            onClick={onRetry}
-            className="mt-2 text-xs text-amber-700 font-medium underline underline-offset-2"
-          >
-            위치 다시 시도하기
-          </button>
-        )}
+        <div className="flex gap-3 mt-2">
+          {onProceed && (
+            <button
+              onClick={onProceed}
+              className="text-xs font-semibold text-white bg-amber-500 px-3 py-1.5 rounded-lg active:bg-amber-600"
+            >
+              위치 없이 추천받기
+            </button>
+          )}
+          {status === "denied" && onRetry && (
+            <button
+              onClick={onRetry}
+              className="text-xs text-amber-700 font-medium underline underline-offset-2 self-center"
+            >
+              위치 다시 시도하기
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

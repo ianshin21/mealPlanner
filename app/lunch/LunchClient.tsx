@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import LocationPermissionBanner from "@/components/lunch-party/LocationPermissionBanner";
 import PlaceRecommendCard from "@/components/lunch-party/PlaceRecommendCard";
+import AdBanner from "@/components/ads/AdBanner";
 import {
   recommendLunch,
   type FoodCategory,
@@ -494,8 +495,10 @@ export default function LunchClient() {
             </div>
           )}
 
+          <AdBanner format="horizontal" className="mt-8" />
+
           {/* 회식 크로스링크 */}
-          <div className="mt-8 p-4 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-between">
+          <div className="mt-4 p-4 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-between">
             <div>
               <p className="font-semibold text-sm text-gray-900">오늘 회식 장소도 고민 중이에요</p>
               <p className="text-xs text-gray-500 mt-0.5">인원과 예산에 맞는 곳을 추천해 드려요</p>
@@ -560,7 +563,7 @@ export default function LunchClient() {
                   <p className="text-xs text-green-600 font-medium py-1">✓ 현재 위치를 사용합니다</p>
                 )}
                 {(locationState === "denied" || locationState === "unavailable") && (
-                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} />
+                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} onProceed={handleSubmit} />
                 )}
               </>
             )}
@@ -644,6 +647,7 @@ export default function LunchClient() {
               ? "위치 가져오는 중..."
               : "점심 메뉴 추천받기 →"}
           </button>
+          <AdBanner format="horizontal" className="mt-4" />
         </div>
       </main>
       <Footer />

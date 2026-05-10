@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import LocationPermissionBanner from "@/components/lunch-party/LocationPermissionBanner";
 import PlaceRecommendCard from "@/components/lunch-party/PlaceRecommendCard";
+import AdBanner from "@/components/ads/AdBanner";
 import {
   recommendParty,
   type Headcount,
@@ -491,8 +492,10 @@ export default function PartyClient() {
             </div>
           )}
 
+          <AdBanner format="horizontal" className="mt-8" />
+
           {/* 유틸 크로스링크 */}
-          <div className="mt-8 grid grid-cols-2 gap-3">
+          <div className="mt-4 grid grid-cols-2 gap-3">
             <Link
               href="/games/ladder"
               className="block p-4 bg-gray-50 border border-gray-100 rounded-2xl text-center"
@@ -563,7 +566,7 @@ export default function PartyClient() {
                   <p className="text-xs text-green-600 font-medium py-1">✓ 현재 위치를 사용합니다</p>
                 )}
                 {(locationState === "denied" || locationState === "unavailable") && (
-                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} />
+                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} onProceed={handleSubmit} />
                 )}
               </>
             )}
@@ -668,6 +671,7 @@ export default function PartyClient() {
               ? "위치 가져오는 중..."
               : "회식 장소 추천받기 →"}
           </button>
+          <AdBanner format="horizontal" className="mt-4" />
         </div>
       </main>
       <Footer />
