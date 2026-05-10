@@ -75,34 +75,43 @@ const DEFAULT_FORM: LunchForm = {
 };
 
 // ────────────────────────────────────────────
-// API 헬퍼 (서버 프록시 경유)
+// API 헬퍼 (서버 프록시 경유, 3페이지 병렬로 최대 45개 확보)
 // ────────────────────────────────────────────
+function dedup(places: Place[]): Place[] {
+  const seen = new Set<string>();
+  return places.filter((p) => !seen.has(p.id) && seen.add(p.id));
+}
+
 async function apiFetchByCoords(lat: number, lng: number): Promise<Place[]> {
-  const params = new URLSearchParams({
-    x: String(lng),
-    y: String(lat),
-    radius: "2000",
-    category: "restaurant",
-    sort: "distance",
-    size: "15",
-  });
-  const res = await fetch(`/api/places/search?${params}`);
-  const data = await res.json();
-  if (!data.ok) throw new Error(data.error ?? "검색 중 오류가 발생했어요.");
-  return data.places as Place[];
+  const base = { x: String(lng), y: String(lat), radius: "2000",
+                 category: "restaurant", sort: "distance", size: "15" };
+  const pages = await Promise.all(
+    [1, 2, 3].map((page) =>
+      fetch(`/api/places/search?${new URLSearchParams({ ...base, page: String(page) })}`)
+        .then((r) => r.json())
+        .then((d) => (d.ok ? (d.places as Place[]) : []))
+        .catch(() => [])
+    )
+  );
+  const all = dedup(pages.flat());
+  if (all.length === 0) throw new Error("주변 식당을 찾지 못했어요.");
+  return all;
 }
 
 async function apiFetchByKeyword(query: string): Promise<Place[]> {
-  const params = new URLSearchParams({
-    query: `${query} 맛집`,
-    category: "restaurant",
-    sort: "accuracy",
-    size: "15",
-  });
-  const res = await fetch(`/api/places/search?${params}`);
-  const data = await res.json();
-  if (!data.ok) throw new Error(data.error ?? "검색 중 오류가 발생했어요.");
-  return data.places as Place[];
+  const base = { query: `${query} 맛집`, category: "restaurant",
+                 sort: "accuracy", size: "15" };
+  const pages = await Promise.all(
+    [1, 2, 3].map((page) =>
+      fetch(`/api/places/search?${new URLSearchParams({ ...base, page: String(page) })}`)
+        .then((r) => r.json())
+        .then((d) => (d.ok ? (d.places as Place[]) : []))
+        .catch(() => [])
+    )
+  );
+  const all = dedup(pages.flat());
+  if (all.length === 0) throw new Error("검색 결과가 없어요. 다른 지역명을 입력해 보세요.");
+  return all;
 }
 
 // ────────────────────────────────────────────
