@@ -104,7 +104,7 @@ async function apiFetchByKeyword(query: string): Promise<Place[]> {
     query:    `${query} 회식`,
     category: "restaurant",
     sort:     "accuracy",
-    size:     "30",
+    size:     "15",
   });
   const res  = await fetch(`/api/places/search?${params}`);
   const data = await res.json();

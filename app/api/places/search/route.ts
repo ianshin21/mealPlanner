@@ -115,7 +115,7 @@ export async function GET(req: NextRequest) {
   // ── 3. 숫자 파라미터 검증
   const radiusResult = parseIntParam(sp.get("radius"), 800,  1,     20000, "radius");
   const pageResult   = parseIntParam(sp.get("page"),   1,    1,     45,    "page");
-  const sizeResult   = parseIntParam(sp.get("size"),   15,   1,     45,    "size");
+  const sizeResult   = parseIntParam(sp.get("size"),   15,   1,     15,    "size");
 
   if ("error" in radiusResult) return err(radiusResult.error, 400);
   if ("error" in pageResult)   return err(pageResult.error,   400);
