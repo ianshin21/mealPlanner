@@ -21,10 +21,20 @@ if (existsSync(nextStaticSrc)) {
   console.log("_next/static -> assets/_next/static");
 }
 
-// _routes.json: bypass worker for /_next/static/* so Cloudflare CDN serves chunks directly.
-// The worker does not correctly forward these requests to the ASSETS binding.
+// Copy public/ assets (og-image, robots.txt, ads.txt 등) to assets/ root.
+// Next.js는 public/를 정적 서빙하지만 opennextjs 빌드에는 포함되지 않으므로 수동 복사.
+if (existsSync("public")) {
+  cpSync("public", ".open-next/assets", { recursive: true });
+  console.log("public/ -> assets/");
+}
+
+// _routes.json: bypass worker for static assets so Cloudflare CDN serves them directly.
 writeFileSync(
   ".open-next/assets/_routes.json",
-  JSON.stringify({ version: 1, include: ["/*"], exclude: ["/_next/static/*"] })
+  JSON.stringify({
+    version: 1,
+    include: ["/*"],
+    exclude: ["/_next/static/*", "/og-image.png", "/robots.txt", "/ads.txt"],
+  })
 );
 console.log("_routes.json written");
