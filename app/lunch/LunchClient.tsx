@@ -165,6 +165,7 @@ export default function LunchClient() {
   const requestGPS = useCallback(() => {
     if (!navigator.geolocation) {
       setLocationState("unavailable");
+      setLocationMode("manual");
       return;
     }
     setLocationState("requesting");
@@ -173,7 +174,10 @@ export default function LunchClient() {
         setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
         setLocationState("granted");
       },
-      () => setLocationState("denied"),
+      () => {
+        setLocationState("denied");
+        setLocationMode("manual");
+      },
       { timeout: 8000 }
     );
   }, []);
@@ -265,13 +269,8 @@ export default function LunchClient() {
   // ── 첫 추천 실행 (폼 제출)
   const handleSubmit = async () => {
     if (locationMode === "gps" && !coords) {
-      // 거부/불가 상태면 키워드 검색으로 폴백해 바로 진행
-      if (locationState === "denied" || locationState === "unavailable") {
-        // fall through
-      } else {
-        requestGPS();
-        return;
-      }
+      requestGPS();
+      return;
     }
 
     trackEvent("lunch_recommend_start", { locationMode });
@@ -562,20 +561,22 @@ export default function LunchClient() {
                 {locationState === "granted" && (
                   <p className="text-xs text-green-600 font-medium py-1">✓ 현재 위치를 사용합니다</p>
                 )}
-                {(locationState === "denied" || locationState === "unavailable") && (
-                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} onProceed={handleSubmit} />
-                )}
               </>
             )}
 
             {locationMode === "manual" && (
-              <input
-                type="text"
-                value={manualAddress}
-                onChange={(e) => setManualAddress(e.target.value)}
-                placeholder="동네 이름이나 주소 입력 (예: 강남역, 역삼동)"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-sky-400"
-              />
+              <>
+                {(locationState === "denied" || locationState === "unavailable") && (
+                  <LocationPermissionBanner status={locationState} onRetry={requestGPS} />
+                )}
+                <input
+                  type="text"
+                  value={manualAddress}
+                  onChange={(e) => setManualAddress(e.target.value)}
+                  placeholder="동네 이름이나 주소 입력 (예: 강남역, 역삼동)"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-sky-400"
+                />
+              </>
             )}
           </section>
 
