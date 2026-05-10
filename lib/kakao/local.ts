@@ -121,8 +121,6 @@ async function kakaoFetch(
 
   const res = await fetch(url.toString(), {
     headers: { Authorization: `KakaoAK ${getRestApiKey()}` },
-    // Route Handler 내에서 60초 캐시 (Next.js fetch 확장)
-    next: { revalidate: 60 },
   });
 
   if (!res.ok) {
