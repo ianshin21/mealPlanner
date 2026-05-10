@@ -94,7 +94,7 @@ function parseFloatParam(
 // Route Handler
 // ────────────────────────────────────────────
 export async function GET(req: NextRequest) {
-  const sp = req.nextUrl.searchParams;
+  const sp = new URL(req.url).searchParams;
 
   const query    = sp.get("query")?.trim() || undefined;
   const xRaw     = sp.get("x");
