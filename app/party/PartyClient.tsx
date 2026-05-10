@@ -14,12 +14,12 @@ import {
   type Atmosphere,
   type DedupPeriod,
   type PartyPreferences,
-  type PlaceHistoryItem,
 } from "@/lib/recommend/party";
 import {
   getPlaceFavorites,
   togglePlaceFavorite,
 } from "@/lib/storage/favorites";
+import { addEntry, getRecentHistory } from "@/lib/storage/history";
 import { sharePlace, isKakaoShareAvailable } from "@/lib/share/kakao";
 import { trackEvent } from "@/lib/analytics";
 import type { Place } from "@/lib/types/place";
@@ -80,38 +80,6 @@ const DEFAULT_FORM: PartyForm = {
   atmosphere:    "normal",
   dedupPeriod:   "7d",
 };
-
-// ────────────────────────────────────────────
-// localStorage 헬퍼
-// ────────────────────────────────────────────
-const HISTORY_KEY = "meal_place_history";
-
-function loadHistory(): PlaceHistoryItem[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = localStorage.getItem(HISTORY_KEY);
-    return raw ? (JSON.parse(raw) as PlaceHistoryItem[]) : [];
-  } catch {
-    return [];
-  }
-}
-
-function addToHistory(place: Place): void {
-  if (typeof window === "undefined") return;
-  try {
-    const history = loadHistory();
-    const item: PlaceHistoryItem = {
-      placeId:    place.id,
-      placeName:  place.name,
-      type:       "party",
-      selectedAt: Date.now(),
-    };
-    const updated = [item, ...history.filter((h) => h.placeId !== place.id)].slice(0, 100);
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(updated));
-  } catch {
-    // ignore storage errors
-  }
-}
 
 // ────────────────────────────────────────────
 // API 헬퍼 (서버 프록시 경유)
@@ -243,7 +211,7 @@ export default function PartyClient() {
 
   // ── 카카오맵 링크 클릭 시 이력 저장
   const handleSelectPlace = (place: Place) => {
-    addToHistory(place);
+    addEntry({ placeId: place.id, placeName: place.name, menuKeyword: place.category, type: "party" });
   };
 
   // ── 즐겨찾기 토글
@@ -300,7 +268,7 @@ export default function PartyClient() {
         dedupPeriod:    form.dedupPeriod,
       };
 
-      const history   = loadHistory();
+      const history   = getRecentHistory("party", form.dedupPeriod);
       const favorites = getPlaceFavorites("party");
       const results   = recommendParty({ places: candidates, preferences: prefs, history, favorites, count: 5 });
 
@@ -340,7 +308,8 @@ export default function PartyClient() {
         dedupPeriod:   "none",
       };
 
-      const results = recommendParty({ places: pool, preferences: prefs, count: 5 });
+      const favorites = getPlaceFavorites("party");
+      const results = recommendParty({ places: pool, preferences: prefs, favorites, count: 5 });
 
       setShownPlaceIds((prev) => {
         const next = new Set(prev);
@@ -460,7 +429,7 @@ export default function PartyClient() {
                     <IconKakao className="w-3.5 h-3.5" />
                     공유
                   </button>
-                  <Link href="/lunch/favorites" className="text-xs text-amber-600 font-medium">
+                  <Link href="/lunch/favorites?tab=party" className="text-xs text-amber-600 font-medium">
                     ♥ 즐겨찾기
                   </Link>
                 </div>

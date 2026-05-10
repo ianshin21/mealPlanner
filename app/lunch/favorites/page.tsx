@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import FavoritesClient from "./FavoritesClient";
 
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function FavoritesPage() {
-  return <FavoritesClient />;
+  return (
+    <Suspense>
+      <FavoritesClient />
+    </Suspense>
+  );
 }

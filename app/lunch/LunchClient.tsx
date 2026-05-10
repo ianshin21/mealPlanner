@@ -13,12 +13,12 @@ import {
   type WalkDistance,
   type DedupPeriod,
   type LunchPreferences,
-  type PlaceHistoryItem,
 } from "@/lib/recommend/lunch";
 import {
   getPlaceFavorites,
   togglePlaceFavorite,
 } from "@/lib/storage/favorites";
+import { addEntry, getRecentHistory } from "@/lib/storage/history";
 import { sharePlace, isKakaoShareAvailable } from "@/lib/share/kakao";
 import { trackEvent } from "@/lib/analytics";
 import type { Place } from "@/lib/types/place";
@@ -73,38 +73,6 @@ const DEFAULT_FORM: LunchForm = {
   walkDistance: "500",
   dedupPeriod: "7d",
 };
-
-// ────────────────────────────────────────────
-// localStorage 헬퍼
-// ────────────────────────────────────────────
-const HISTORY_KEY = "meal_place_history";
-
-function loadHistory(): PlaceHistoryItem[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = localStorage.getItem(HISTORY_KEY);
-    return raw ? (JSON.parse(raw) as PlaceHistoryItem[]) : [];
-  } catch {
-    return [];
-  }
-}
-
-function addToHistory(place: Place): void {
-  if (typeof window === "undefined") return;
-  try {
-    const history = loadHistory();
-    const item: PlaceHistoryItem = {
-      placeId: place.id,
-      placeName: place.name,
-      type: "lunch",
-      selectedAt: Date.now(),
-    };
-    const updated = [item, ...history.filter((h) => h.placeId !== place.id)].slice(0, 100);
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(updated));
-  } catch {
-    // ignore storage errors
-  }
-}
 
 // ────────────────────────────────────────────
 // API 헬퍼 (서버 프록시 경유)
@@ -216,7 +184,7 @@ export default function LunchClient() {
 
   // ── 카카오맵 링크 클릭 시 이력 저장
   const handleSelectPlace = (place: Place) => {
-    addToHistory(place);
+    addEntry({ placeId: place.id, placeName: place.name, menuKeyword: place.category, type: "lunch" });
   };
 
   // ── 카카오 공유 (SDK 미준비 시 Web Share API 폴백)
@@ -271,7 +239,7 @@ export default function LunchClient() {
       walkDistance: locationMode === "manual" ? "any" : form.walkDistance,
       dedupPeriod,
     };
-    const history   = dedupPeriod === "none" ? [] : loadHistory();
+    const history   = getRecentHistory("lunch", dedupPeriod);
     const favorites = getPlaceFavorites("lunch");
     const results   = recommendLunch({ places: candidates, preferences: prefs, history, favorites, count: 5 });
 
@@ -346,7 +314,8 @@ export default function LunchClient() {
         dedupPeriod: "none", // 재추천 시 이력 필터 없음 (shownPlaceIds로 이미 다양성 확보)
       };
 
-      const results = recommendLunch({ places: pool, preferences: prefs, count: 5 });
+      const favorites = getPlaceFavorites("lunch");
+      const results = recommendLunch({ places: pool, preferences: prefs, favorites, count: 5 });
 
       setShownPlaceIds((prev) => {
         const next = new Set(prev);

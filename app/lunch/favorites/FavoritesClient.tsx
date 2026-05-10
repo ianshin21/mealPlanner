@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -77,7 +78,9 @@ function FavoriteItem({
 }
 
 export default function FavoritesClient() {
-  const [activeTab, setActiveTab] = useState<Tab>("lunch");
+  const searchParams = useSearchParams();
+  const initialTab = (searchParams.get("tab") === "party" ? "party" : "lunch") as Tab;
+  const [activeTab, setActiveTab] = useState<Tab>(initialTab);
   const [favorites, setFavorites] = useState<PlaceFavorite[]>([]);
 
   useEffect(() => {
@@ -101,7 +104,12 @@ export default function FavoritesClient() {
         <div className="mb-4">
           <Link href="/" className="text-xs text-orange-500">홈</Link>
           <span className="text-xs text-gray-300 mx-1">›</span>
-          <Link href="/lunch" className="text-xs text-orange-500">점심 추천</Link>
+          <Link
+            href={activeTab === "party" ? "/party" : "/lunch"}
+            className="text-xs text-orange-500"
+          >
+            {activeTab === "party" ? "회식 추천" : "점심 추천"}
+          </Link>
           <span className="text-xs text-gray-300 mx-1">›</span>
           <span className="text-xs text-gray-400">즐겨찾기</span>
         </div>

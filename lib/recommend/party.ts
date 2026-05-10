@@ -47,7 +47,8 @@ export interface PartyScoreBreakdown {
   atmosphereMatch: number;     // 0~15
   budgetMatch: number;         // 0~15
   headcountSuitability: number; // 0~10
-  total: number;               // 0~125
+  favoritesBoost: number;      // 0~10
+  total: number;               // 0~135
 }
 
 /** 점수가 부여된 장소 (디버깅·테스트용) */
@@ -321,6 +322,7 @@ export function scorePlacesForParty({
         atmosphereMatch,
         budgetMatch,
         headcountSuitability,
+        favoritesBoost,
         total,
       },
     };
