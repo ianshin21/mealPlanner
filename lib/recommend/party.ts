@@ -17,8 +17,8 @@
 import type { Place } from "@/lib/types/place";
 
 // 공유 타입: lunch.ts 에서 재-export
-export type { DedupPeriod, PlaceHistoryItem } from "./lunch";
-import type { DedupPeriod, PlaceHistoryItem } from "./lunch";
+export type { DedupPeriod, PlaceHistoryItem, FavoritePlace } from "./lunch";
+import type { DedupPeriod, PlaceHistoryItem, FavoritePlace } from "./lunch";
 
 // ────────────────────────────────────────────
 // 회식 전용 타입
@@ -61,6 +61,7 @@ export interface PartyRecommendOptions {
   places: Place[];
   preferences: PartyPreferences;
   history?: PlaceHistoryItem[];
+  favorites?: FavoritePlace[];
   count?: number; // 반환할 최대 개수 (기본 5)
 }
 
@@ -277,6 +278,11 @@ function scoreHeadcountSuitability(category: string, headcount: Headcount): numb
   }
 }
 
+/** 즐겨찾기 카테고리 가중치: 즐겨찾기 식당과 같은 카테고리면 +10점 */
+function scoreFavoritesBoost(place: Place, favorites: FavoritePlace[]): number {
+  return favorites.some((fav) => fav.category === place.category) ? 10 : 0;
+}
+
 // ────────────────────────────────────────────
 // 공개 함수
 // ────────────────────────────────────────────
@@ -292,17 +298,19 @@ export function scorePlacesForParty({
   places,
   preferences,
   history = [],
+  favorites = [],
 }: Omit<PartyRecommendOptions, "count">): ScoredPartyPlace[] {
   return places.map((place) => {
-    const partySuitability    = scorePartySuitability(place.category);
-    const alcoholMatch        = scoreAlcoholMatch(place.category, preferences.includeAlcohol);
-    const menuStyleMatch      = scoreMenuStyleMatch(place, preferences.menuStyles);
-    const atmosphereMatch     = scoreAtmosphereMatch(place.category, preferences.atmosphere);
-    const budgetMatch         = scoreBudgetMatch(place, preferences.budget);
+    const partySuitability     = scorePartySuitability(place.category);
+    const alcoholMatch         = scoreAlcoholMatch(place.category, preferences.includeAlcohol);
+    const menuStyleMatch       = scoreMenuStyleMatch(place, preferences.menuStyles);
+    const atmosphereMatch      = scoreAtmosphereMatch(place.category, preferences.atmosphere);
+    const budgetMatch          = scoreBudgetMatch(place, preferences.budget);
     const headcountSuitability = scoreHeadcountSuitability(place.category, preferences.headcount);
+    const favoritesBoost       = scoreFavoritesBoost(place, favorites);
     const total =
       partySuitability + alcoholMatch + menuStyleMatch +
-      atmosphereMatch + budgetMatch + headcountSuitability;
+      atmosphereMatch + budgetMatch + headcountSuitability + favoritesBoost;
 
     return {
       place,
@@ -334,6 +342,7 @@ export function recommendParty({
   places,
   preferences,
   history = [],
+  favorites = [],
   count = 5,
 }: PartyRecommendOptions): Place[] {
   const now = Date.now();
@@ -352,7 +361,7 @@ export function recommendParty({
   if (candidates.length === 0) return [];
 
   // ── 2. 점수 계산
-  const scored = scorePlacesForParty({ places: candidates, preferences, history });
+  const scored = scorePlacesForParty({ places: candidates, preferences, history, favorites });
   scored.sort((a, b) => b.breakdown.total - a.breakdown.total);
 
   // ── 3. 카테고리 다양성 보장

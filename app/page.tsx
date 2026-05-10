@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AdBanner from "@/components/ads/AdBanner";
 import LandingAnalytics from "@/components/analytics/LandingAnalytics";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "자동 식단 생성기 | 1인·2인 가정을 위한 14·28일 식단",
@@ -30,7 +31,7 @@ export default function LandingPage() {
       <Header />
       <main className="max-w-2xl mx-auto px-4">
         {/* Hero */}
-        <section className="py-12 text-center">
+        <section className="pt-12 pb-8 text-center">
           <div className="text-6xl mb-4">🍱</div>
           <h1 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
             매일 &quot;오늘 뭐 먹지?&quot;
@@ -50,37 +51,61 @@ export default function LandingPage() {
           >
             무료로 식단 만들기
           </Link>
-          <p className="mt-4 text-xs text-gray-400">
-            * 이 서비스는 일반 건강 참고용이며 의료 조언이 아닙니다.
-          </p>
+        </section>
 
-          {/* 점심 / 회식 진입 카드 */}
-          <div className="mt-6 grid grid-cols-2 gap-3 text-left">
-            <Link
+        {/* 오늘 외식 · 회식 빠른 진입 */}
+        <section className="pb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex-1 h-px bg-gray-100" />
+            <span className="text-xs text-gray-400 font-medium whitespace-nowrap">오늘 외식 고민이라면</span>
+            <div className="flex-1 h-px bg-gray-100" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <TrackedLink
               href="/lunch"
+              trackOn="lunch_entry_click"
               className="block rounded-2xl p-4 border border-sky-100 bg-sky-50 active:bg-sky-100 transition-colors"
             >
               <div className="text-2xl mb-2">🍜</div>
               <div className="font-semibold text-sm text-gray-900 leading-tight mb-1">
                 오늘 점심 뭐 먹지?
               </div>
-              <div className="text-xs text-gray-500 leading-relaxed mb-3">
-                주변 맛집과 메뉴를 빠르게 추천받기
+              <div className="text-xs text-gray-500 leading-snug mb-3">
+                위치 기반으로 주변 맛집 즉시 추천
               </div>
-              <div className="text-xs font-semibold text-sky-600">점심 추천 받기 →</div>
-            </Link>
-            <Link
+              <div className="text-xs font-semibold text-sky-600">지금 추천받기 →</div>
+            </TrackedLink>
+            <TrackedLink
               href="/party"
+              trackOn="party_entry_click"
               className="block rounded-2xl p-4 border border-amber-100 bg-amber-50 active:bg-amber-100 transition-colors"
             >
               <div className="text-2xl mb-2">🍻</div>
               <div className="font-semibold text-sm text-gray-900 leading-tight mb-1">
                 오늘 회식 어디서 하지?
               </div>
-              <div className="text-xs text-gray-500 leading-relaxed mb-3">
-                인원, 예산, 분위기에 맞는 회식 메뉴 추천
+              <div className="text-xs text-gray-500 leading-snug mb-3">
+                인원·예산에 맞는 회식 장소 찾기
               </div>
-              <div className="text-xs font-semibold text-amber-600">회식 메뉴 고르기 →</div>
+              <div className="text-xs font-semibold text-amber-600">장소 찾기 →</div>
+            </TrackedLink>
+          </div>
+
+          <div className="flex gap-2 mt-3">
+            <Link
+              href="/tools/split"
+              className="flex-1 flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-2.5 active:bg-gray-50 transition-colors"
+            >
+              <span className="text-base">🔢</span>
+              <span className="text-sm font-medium text-gray-600">1/N 계산기</span>
+            </Link>
+            <Link
+              href="/games/ladder"
+              className="flex-1 flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-2.5 active:bg-gray-50 transition-colors"
+            >
+              <span className="text-base">🪜</span>
+              <span className="text-sm font-medium text-gray-600">사다리타기</span>
             </Link>
           </div>
         </section>

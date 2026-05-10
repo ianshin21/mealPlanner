@@ -6,6 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/generate`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    // 점심 · 회식 · 도구 · 게임
+    { url: `${baseUrl}/lunch`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
+    { url: `${baseUrl}/party`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
+    { url: `${baseUrl}/tools/split`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
+    { url: `${baseUrl}/games/ladder`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     // 블로그

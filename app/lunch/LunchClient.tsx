@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -15,6 +15,12 @@ import {
   type LunchPreferences,
   type PlaceHistoryItem,
 } from "@/lib/recommend/lunch";
+import {
+  getPlaceFavorites,
+  togglePlaceFavorite,
+} from "@/lib/storage/favorites";
+import { sharePlace, isKakaoShareAvailable } from "@/lib/share/kakao";
+import { trackEvent } from "@/lib/analytics";
 import type { Place } from "@/lib/types/place";
 
 // ────────────────────────────────────────────
@@ -132,6 +138,17 @@ async function apiFetchByKeyword(query: string): Promise<Place[]> {
 }
 
 // ────────────────────────────────────────────
+// 아이콘
+// ────────────────────────────────────────────
+function IconKakao({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.68 1.76 5.03 4.42 6.38l-.88 3.28 3.82-2.52A10.9 10.9 0 0 0 12 18c4.97 0 9-3.36 9-7.5S16.97 3 12 3z" />
+    </svg>
+  );
+}
+
+// ────────────────────────────────────────────
 // 공통 버튼 스타일 헬퍼
 // ────────────────────────────────────────────
 function chip(active: boolean) {
@@ -159,6 +176,12 @@ export default function LunchClient() {
   const [shownPlaceIds, setShownPlaceIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // 즐겨찾기
+  const [favoritedIds, setFavoritedIds] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    setFavoritedIds(new Set(getPlaceFavorites("lunch").map((f) => f.placeId)));
+  }, []);
 
   // ── 위치 요청
   const requestGPS = useCallback(() => {
@@ -196,6 +219,50 @@ export default function LunchClient() {
     addToHistory(place);
   };
 
+  // ── 카카오 공유 (SDK 미준비 시 Web Share API 폴백)
+  const handleShare = (place: Place) => {
+    trackEvent("kakao_share_click", { page: "lunch" });
+    if (isKakaoShareAvailable()) {
+      sharePlace({
+        type: "lunch",
+        placeName: place.name,
+        category: place.category,
+        address: place.address,
+        distance: place.distance,
+        estimatedPricePerPerson: place.estimatedPricePerPerson,
+        kakaoMapUrl: place.kakaoMapUrl,
+      });
+      return;
+    }
+    if (navigator.share) {
+      navigator.share({
+        title: `오늘 점심 후보 찾았어 — ${place.name}`,
+        text: [place.category, place.address].filter(Boolean).join(" · "),
+        url: place.kakaoMapUrl,
+      }).catch(() => {});
+    }
+  };
+
+  // ── 즐겨찾기 토글
+  const handleFavoriteToggle = (place: Place) => {
+    const added = togglePlaceFavorite({
+      placeId: place.id,
+      placeName: place.name,
+      category: place.category,
+      address: place.address,
+      kakaoMapUrl: place.kakaoMapUrl,
+      estimatedPricePerPerson: place.estimatedPricePerPerson,
+      type: "lunch",
+    });
+    trackEvent("lunch_favorite", { action: added ? "add" : "remove" });
+    setFavoritedIds((prev) => {
+      const next = new Set(prev);
+      if (added) next.add(place.id);
+      else next.delete(place.id);
+      return next;
+    });
+  };
+
   // ── 공통 추천 실행 (candidates 풀을 받아 처리)
   const runRecommend = async (candidates: Place[], dedupPeriod: DedupPeriod) => {
     const prefs: LunchPreferences = {
@@ -204,8 +271,9 @@ export default function LunchClient() {
       walkDistance: locationMode === "manual" ? "any" : form.walkDistance,
       dedupPeriod,
     };
-    const history = dedupPeriod === "none" ? [] : loadHistory();
-    const results = recommendLunch({ places: candidates, preferences: prefs, history, count: 5 });
+    const history   = dedupPeriod === "none" ? [] : loadHistory();
+    const favorites = getPlaceFavorites("lunch");
+    const results   = recommendLunch({ places: candidates, preferences: prefs, history, favorites, count: 5 });
 
     setShownPlaceIds((prev) => {
       const next = new Set(prev);
@@ -224,6 +292,7 @@ export default function LunchClient() {
       return;
     }
 
+    trackEvent("lunch_recommend_start", { locationMode });
     setView("result");
     setLoading(true);
     setError(null);
@@ -241,7 +310,8 @@ export default function LunchClient() {
       }
 
       setAllCandidates(candidates);
-      await runRecommend(candidates, form.dedupPeriod);
+      const results = await runRecommend(candidates, form.dedupPeriod);
+      trackEvent("lunch_recommend_complete", { count: results.length });
     } catch (e) {
       setError(e instanceof Error ? e.message : "추천을 불러오지 못했어요.");
     } finally {
@@ -251,6 +321,7 @@ export default function LunchClient() {
 
   // ── 다시 추천받기 (pool 기반, API 재호출 없음)
   const handleRetry = async () => {
+    trackEvent("lunch_retry");
     // API 호출 자체가 실패했으면 처음부터 재시도
     if (allCandidates.length === 0) {
       await handleSubmit();
@@ -380,10 +451,32 @@ export default function LunchClient() {
           {/* 추천 결과 */}
           {!loading && !error && hero && (
             <>
-              <p className="text-xs font-semibold text-gray-400 mb-2 tracking-wide uppercase">
-                오늘의 추천
-              </p>
-              <PlaceRecommendCard place={hero} variant="hero" onSelect={handleSelectPlace} />
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-semibold text-gray-400 tracking-wide uppercase">
+                  오늘의 추천
+                </p>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleShare(hero)}
+                    className="flex items-center gap-1 text-xs font-semibold bg-[#FEE500] text-gray-900 px-2.5 py-1 rounded-lg active:opacity-70"
+                  >
+                    <IconKakao className="w-3.5 h-3.5" />
+                    공유
+                  </button>
+                  <Link href="/lunch/favorites" className="text-xs text-sky-600 font-medium">
+                    ♥ 즐겨찾기
+                  </Link>
+                </div>
+              </div>
+              <PlaceRecommendCard
+                place={hero}
+                variant="hero"
+                colorScheme="sky"
+                isFavorited={favoritedIds.has(hero.id)}
+                onSelect={handleSelectPlace}
+                onFavoriteToggle={handleFavoriteToggle}
+              />
 
               {rest.length > 0 && (
                 <>
@@ -392,7 +485,15 @@ export default function LunchClient() {
                   </p>
                   <div className="space-y-2">
                     {rest.map((place) => (
-                      <PlaceRecommendCard key={place.id} place={place} variant="list" onSelect={handleSelectPlace} />
+                      <PlaceRecommendCard
+                        key={place.id}
+                        place={place}
+                        variant="list"
+                        colorScheme="sky"
+                        isFavorited={favoritedIds.has(place.id)}
+                        onSelect={handleSelectPlace}
+                        onFavoriteToggle={handleFavoriteToggle}
+                      />
                     ))}
                   </div>
                 </>

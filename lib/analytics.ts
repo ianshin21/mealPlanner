@@ -19,7 +19,19 @@ export type EventName =
   | "return_visit"
   | "share_click"
   | "share_complete"
-  | "meal_replace_click";
+  | "meal_replace_click"
+  // 점심·회식·도구 이벤트
+  | "lunch_entry_click"
+  | "party_entry_click"
+  | "lunch_recommend_start"
+  | "lunch_recommend_complete"
+  | "lunch_retry"
+  | "lunch_favorite"
+  | "party_recommend_start"
+  | "party_recommend_complete"
+  | "split_calculate"
+  | "ladder_start"
+  | "kakao_share_click";
 
 export interface EventProps {
   [key: string]: string | number | boolean | undefined;

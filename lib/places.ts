@@ -29,6 +29,15 @@ export function formatDistance(meters: number): string {
   return `${(meters / 1000).toFixed(1)}km`;
 }
 
+/**
+ * 네이버지도 이름 검색 URL.
+ * 실제 place ID가 없으므로 이름 검색으로 이동.
+ * 모바일에서 네이버지도 앱이 설치되어 있으면 universal link로 앱 오픈.
+ */
+export function buildNaverMapUrl(name: string): string {
+  return `https://map.naver.com/p/search/${encodeURIComponent(name)}`;
+}
+
 const MOCK_LUNCH_PLACES: Place[] = [
   {
     id: "l1", name: "한솥도시락", category: "도시락·분식",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import KakaoSDKScript from "@/components/KakaoSDKScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mealplanner-19t.pages.dev"),
@@ -80,6 +81,7 @@ export default function RootLayout({
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5247269257735944" crossOrigin="anonymous"></script>
       </head>
       <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+        <KakaoSDKScript />
         {children}
       </body>
     </html>
