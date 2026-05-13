@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 import KakaoSDKScript from "@/components/KakaoSDKScript";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mealplanner-19t.pages.dev";
+const siteName = "자동 식단 생성기";
+const defaultTitle = "자동 식단 생성기 | 1인·2인 맞춤 식단 14·28일 자동 생성";
+const defaultDescription =
+  "회원가입 없이 1인·2인 맞춤 식단을 자동으로 생성해보세요. 14일·28일 식단을 간편하게 만듭니다.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mealplanner-19t.pages.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "자동 식단 생성기 | 1인·2인 가정을 위한 14·28일 식단",
-    template: "%s | 자동 식단 생성기",
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
   },
-  description:
-    "회원가입 없이 바로 사용하는 1인·2인 가정용 자동 식단 생성기. 14일 또는 28일치 점심·저녁 식단을 목표와 취향에 맞게 자동으로 만들어 드립니다.",
+  description: defaultDescription,
   keywords: [
     "식단 생성기",
     "1인 가정 식단",
@@ -25,24 +31,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://mealplanner-19t.pages.dev",
-    siteName: "자동 식단 생성기",
-    title: "자동 식단 생성기 | 1인·2인 가정용 14·28일 식단",
-    description:
-      "회원가입 없이 바로 사용. 14일 또는 28일치 점심·저녁 식단을 자동으로 만들어 드립니다.",
-    images: [
-      {
-        url: "https://mealplanner-19t.pages.dev/og-image.png?v=1",
-        width: 1200,
-        height: 630,
-        alt: "자동 식단 생성기",
-      },
-    ],
+    url: "/",
+    siteName,
+    title: defaultTitle,
+    description: defaultDescription,
+    // og:image는 app/opengraph-image.tsx가 자동 생성 — 여기 images 없음 (중복 방지)
   },
   twitter: {
     card: "summary_large_image",
-    title: "자동 식단 생성기",
-    description: "1인·2인 가정을 위한 14·28일 자동 식단 생성기",
+    title: defaultTitle,
+    description: defaultDescription,
+    // twitter:image는 og:image로 폴백 — opengraph-image.tsx가 담당
   },
   robots: {
     index: true,
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://mealplanner-19t.pages.dev",
+    canonical: "/",
   },
   other: {
     "google-adsense-account": "ca-pub-5247269257735944",
