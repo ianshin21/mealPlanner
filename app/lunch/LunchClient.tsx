@@ -161,25 +161,31 @@ export default function LunchClient() {
     setFavoritedIds(new Set(getPlaceFavorites("lunch").map((f) => f.placeId)));
   }, []);
 
-  // ── 위치 요청
-  const requestGPS = useCallback(() => {
-    if (!navigator.geolocation) {
-      setLocationState("unavailable");
-      setLocationMode("manual");
-      return;
-    }
-    setLocationState("requesting");
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
-        setLocationState("granted");
-      },
-      () => {
-        setLocationState("denied");
+  // ── 위치 요청 (Promise 반환: 성공 시 coords, 거부/불가 시 null)
+  const requestGPS = useCallback((): Promise<{ lat: number; lng: number } | null> => {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) {
+        setLocationState("unavailable");
         setLocationMode("manual");
-      },
-      { timeout: 8000 }
-    );
+        resolve(null);
+        return;
+      }
+      setLocationState("requesting");
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const c = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          setCoords(c);
+          setLocationState("granted");
+          resolve(c);
+        },
+        () => {
+          setLocationState("denied");
+          setLocationMode("manual");
+          resolve(null);
+        },
+        { timeout: 8000 }
+      );
+    });
   }, []);
 
   // ── 카테고리 다중 선택 토글
@@ -268,9 +274,12 @@ export default function LunchClient() {
 
   // ── 첫 추천 실행 (폼 제출)
   const handleSubmit = async () => {
-    if (locationMode === "gps" && !coords) {
-      requestGPS();
-      return;
+    if (loading) return;
+
+    let gpsCoords = coords;
+    if (locationMode === "gps" && !gpsCoords) {
+      gpsCoords = await requestGPS();
+      if (!gpsCoords) return; // GPS 거부 → 수동 입력 모드로 전환됨, 주소 입력 후 재시도
     }
 
     trackEvent("lunch_recommend_start", { locationMode });
@@ -283,8 +292,8 @@ export default function LunchClient() {
 
     try {
       let candidates: Place[];
-      if (locationMode === "gps" && coords) {
-        candidates = await apiFetchByCoords(coords.lat, coords.lng);
+      if (locationMode === "gps" && gpsCoords) {
+        candidates = await apiFetchByCoords(gpsCoords.lat, gpsCoords.lng);
       } else {
         const query = manualAddress.trim() || "맛집";
         candidates = await apiFetchByKeyword(query);
