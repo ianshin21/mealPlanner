@@ -35,13 +35,20 @@ export const metadata: Metadata = {
     siteName,
     title: defaultTitle,
     description: defaultDescription,
-    // og:image는 app/opengraph-image.tsx가 자동 생성 — 여기 images 없음 (중복 방지)
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "자동 식단 생성기 서비스 소개 이미지",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
-    // twitter:image는 og:image로 폴백 — opengraph-image.tsx가 담당
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

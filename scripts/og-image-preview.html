@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OG Image Preview — 1200×630</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #e5e7eb; display: flex; flex-direction: column; align-items: center; padding: 32px; gap: 16px; font-family: 'Noto Sans KR', sans-serif; }
+  .note { font-size: 13px; color: #6b7280; }
+  .note a { color: #f97316; }
+
+  /* ── 실제 OG 이미지 영역: 정확히 1200×630 ── */
+  .og {
+    width: 1200px;
+    height: 630px;
+    display: flex;
+    background: #FFF9F4;
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    flex-shrink: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.12);
+  }
+
+  /* 왼쪽 텍스트 */
+  .left {
+    width: 58%;
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .label-chip {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #FFF1E6;
+    color: #EA580C;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  .main-title {
+    font-size: 62px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .sub-text {
+    font-size: 28px;
+    color: #6B7280;
+    margin-bottom: 32px;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+  }
+  .badge {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #F3F4F6;
+    color: #374151;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  /* 오른쪽 카드 */
+  .right {
+    width: 42%;
+    padding: 48px 48px 48px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    width: 100%;
+    height: 472px;
+    border-radius: 28px;
+    background: #fff;
+    border: 1.5px solid #F3F4F6;
+    box-shadow: 0 16px 40px rgba(17,24,39,.07);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-top { display: flex; flex-direction: column; gap: 14px; }
+  .card-title { font-size: 24px; font-weight: 800; color: #111827; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #FFF7ED;
+    color: #C2410C;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .meal-list { display: flex; flex-direction: column; gap: 8px; }
+  .meal-item {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 18px;
+    color: #374151;
+  }
+  .cta-btn {
+    width: 100%;
+    border-radius: 14px;
+    background: #F97316;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    font-size: 22px;
+    font-weight: 800;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<p class="note">
+  이 파일을 브라우저에서 열고, 아래 1200×630 영역을 캡처해<br>
+  <strong>public/og-image.png</strong> 로 교체하세요.<br>
+  Chrome DevTools → Device Toolbar에서 1200×630으로 설정 후 스크린샷이 가장 정확합니다.
+</p>
+
+<!-- ★ 이 영역만 캡처하세요 ★ -->
+<div class="og">
+
+  <div class="left">
+    <span class="label-chip">자동 식단 생성기</span>
+
+    <div class="main-title">
+      1인·2인 맞춤 식단<br>
+      14·28일 자동 생성
+    </div>
+
+    <div class="sub-text">회원가입 없이 1분 만에</div>
+
+    <div class="badges">
+      <span class="badge">무료</span>
+      <span class="badge">1인/2인</span>
+      <span class="badge">14/28일</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">식단 설정</div>
+        <div class="chips">
+          <span class="chip">1인</span>
+          <span class="chip">28일</span>
+          <span class="chip">균형 식사</span>
+          <span class="chip">빠른 조리</span>
+        </div>
+        <div class="meal-list">
+          <div class="meal-item">월: 닭가슴살 샐러드 + 현미밥</div>
+          <div class="meal-item">화: 두부덮밥 + 된장국</div>
+          <div class="meal-item">수: 연어구이 + 채소볶음</div>
+        </div>
+      </div>
+      <div class="cta-btn">식단 만들기 →</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
