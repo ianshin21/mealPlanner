@@ -1,7 +1,6 @@
 "use client";
 
-// AdSense 슬롯 컴포넌트 - publisher ID와 slot ID를 환경변수로 관리
-// 실제 배포 시: NEXT_PUBLIC_ADSENSE_CLIENT, NEXT_PUBLIC_ADSENSE_SLOT 설정
+import { useEffect, useRef } from "react";
 
 interface AdBannerProps {
   slot?: string;
@@ -9,11 +8,27 @@ interface AdBannerProps {
   className?: string;
 }
 
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
+
 export default function AdBanner({ format = "auto", className = "" }: AdBannerProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const slotId = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
+  const insRef = useRef<HTMLModElement>(null);
 
-  if (!clientId) {
-    // 개발 환경 플레이스홀더
+  useEffect(() => {
+    if (!clientId || !slotId) return;
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // adsbygoogle 스크립트 미로드 시 무시
+    }
+  }, [clientId, slotId]);
+
+  if (!clientId || !slotId) {
     return (
       <div
         className={`bg-gray-100 border border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400 text-xs ${
@@ -28,10 +43,11 @@ export default function AdBanner({ format = "auto", className = "" }: AdBannerPr
   return (
     <div className={`overflow-hidden ${className}`}>
       <ins
-        className="adsbygoogle block"
+        ref={insRef}
+        className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client={clientId}
-        data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT}
+        data-ad-slot={slotId}
         data-ad-format={format}
         data-full-width-responsive="true"
       />
